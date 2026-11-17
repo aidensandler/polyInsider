@@ -7,7 +7,7 @@ const pct=x=>fmt(Number(x)*100,1)+'%';
 const nav=[['index.html','Overview'],['findings.html','Prior findings'],['empirical.html','Real results'],['tracker.html','Live tracker'],['timing.html','Trader timing'],['alerts.html','Alerts'],['methodology.html','Method']];
 function layout(page){
  $('ticker').innerHTML='<b>ECE 473 / Princeton</b><span>Research prototype</span><span>Independent forecasts · saved before resolution</span>';
- $('hdr').innerHTML='<div class="inner"><a class="brand" href="index.html">poly<span>insiders</span><span style="font-size:8px;vertical-align:top;letter-spacing:0;margin-left:5px">LAB</span></a><nav>'+nav.map(([href,name])=>'<a '+(href===page?'class="active" ':'')+'href="'+href+'">'+name+'</a>').join('')+'</nav></div>';
+ $('hdr').innerHTML='<div class="inner"><a class="brand" href="index.html">poly<span>insiders</span></a><nav>'+nav.map(([href,name])=>'<a '+(href===page?'class="active" ':'')+'href="'+href+'">'+name+'</a>').join('')+'</nav></div>';
  $('ftr').innerHTML='<div class="footer"><div class="inner footcols"><div><strong>PolyInsiders · ECE 473</strong><div>Aiden Sandler &amp; Emilly Antero · November 2026</div></div><div>Research only. Public wallet performance does not prove private information.<div><a href="methodology.html">Methods &amp; limitations</a></div></div></div></div>';
 }
 async function getJSON(p){const response=await fetch(p+'?v='+Date.now(),{cache:'no-store'});if(!response.ok)throw Error(response.status+' from '+p);return await response.json()}
