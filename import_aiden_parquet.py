@@ -23,7 +23,7 @@ def utc(series):
 
 def main():
     p=argparse.ArgumentParser(description='Convert Aiden 2026 data_events/live Parquet to PolyInsiders history')
-    p.add_argument('--input', default='/Users/emilly/Desktop/pm473/data_events/live')
+    p.add_argument('--input', default='data_events/live')
     p.add_argument('--out', default='data/prepared_history.csv')
     p.add_argument('--lead-hours', type=int, default=24,
                    help='Freeze at least this many hours before recorded information release / resolution')

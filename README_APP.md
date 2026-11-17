@@ -2,22 +2,22 @@
 **Aiden Sandler & Emilly Antero | Updated November 16, 2026**
 
 ## Start here
-This is a **working local research prototype**, designed to match the provided PolyInsiders `findings.html` aesthetic. It contains *two distinct* forward-looking models and an auditable tracker. The currently supplied trained models are **SYNTHETIC DEMONSTRATIONS**, not empirical validation on Polymarket. The earlier published team findings are copied from earlier team summaries with their provenance and are not newly recomputed.
+This is a **working local research prototype**, designed to match the provided PolyInsiders `findings.html` aesthetic. It contains *two distinct* forward-looking models and an auditable tracker. The trained models in `data/run/` were fit on our full historical Polymarket archive (see `data/run/model.json`). `python -m polyinsider.cli demo` regenerates a separate, clearly labeled **synthetic** demo for testing the pipeline only. Historical results are from the team's own runs; see `analysis/` and the top-level README for the latest tests.
 
-**Real-data status:** the original 15.6-million-fill transaction archive was not available for ingestion here, and the build environment cannot access Polymarket's live API. Thus no claim is made that the real-data training or genuine live monitoring has run. The code to import, train, poll, log, evaluate, and test has been implemented and validated with automated tests and mocked API responses.
+**Real-data status:** the 15.6-million-fill archive is not in the repository (too large; see `analysis/README.md`). Trained models, derived results and a saved live snapshot are included. Live collection requires an internet connection and `serve --live`; the hosted website is a static snapshot.
 
 ## One-command demo (after dependencies)
 
 ```bash
-cd PolyInsiders_ECE473_Updated
+cd polyInsider   # the cloned repository folder
 python3 -m venv .venv
 source .venv/bin/activate                 # Windows PowerShell: .venv\\Scripts\\Activate.ps1
-python -m pip install -r requirements.txt
+python -m pip install -r requirements.txt   # includes duckdb for the timing builders
 python -m pytest -q                     # 16 automated tests
-python -m polyinsider.cli demo           # regenerates synthetic labels and both models
-python -m polyinsider.cli serve --port 8000
+python -m polyinsider.cli serve --live --interval 120 --port 8000   # real snapshots; needs internet
+# python -m polyinsider.cli demo   # OPTIONAL: overwrites with a synthetic demo; do not run if you want to keep the real models
 ```
-Browse `http://127.0.0.1:8000`. The **Tracker** page explicitly displays *synthetic demonstration* for this offline run. Refreshing the browser reloads saved JSON; it does not poll Polymarket by itself.
+Browse `http://127.0.0.1:8000`. The **Tracker** page shows the saved snapshot (labeled synthetic only if you ran `demo`). Refreshing the browser reloads saved JSON; it does not poll Polymarket by itself.
 
 ## The TA's requirement and our two prediction targets
 
@@ -112,7 +112,7 @@ python -m polyinsider.cli snapshot --allow-demo-model
 - Crucial caveat: top-scoring wallets had approximately the **same later edge +0.13** in both groups, so stronger correlations do not prove insider information.
 - Findings were described in the prior team's `handoff.md` and November 11 documents and were not independently reproduced here. Historical wallet-score metrics and the new synthetic model metrics are **not interchangeable**.
 
-## Current synthetic engineering results (not real-data evidence)
+## Synthetic pipeline tests (not real-data evidence)
 The included deterministic generator creates 220 artificial markets, intentionally endows some artificial wallets with information about simulated outcomes, and produces 7 fake currently unresolved market examples. These are simulated for pipeline testing. Model statistics can be viewed on the tracker and in `data/run/*backtest.json`. A high synthetic AUC is not evidence of useful real forecasts.
 
 ## Ethical, empirical, and data limitations
@@ -131,4 +131,4 @@ The included deterministic generator creates 220 artificial markets, intentional
 - Public researcher overview: https://institute.polymarket.com/data
 
 ## Reproducibility and ownership
-`polyinsider/`: source; `tests/`: 16 automated tests; `web/`: interactive local website; `data/`: synthetic demo and input templates; `docs/`: detailed explanation and TA walkthrough; `slides/`: editable presentation. All source files are provided, no API keys or private wallet secrets required.
+`polyinsider/`: source; `tests/`: 16 automated tests; `web/`: interactive local website; `data/`: trained models, saved results and input templates; `docs/`: detailed explanation and TA walkthrough; `slides/`: editable presentation. All source files are provided, no API keys or private wallet secrets required.

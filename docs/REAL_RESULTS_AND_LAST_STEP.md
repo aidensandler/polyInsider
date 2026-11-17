@@ -1,6 +1,6 @@
 # PolyInsiders — actual results and last check (Nov 16, 2026)
 
-**Results are transcribed from terminal outputs supplied by the team on Nov 16, 2026. They have not been independently recomputed in this distribution.** The zip contains the synthetic demo model by necessity; do not replace the **real-trained** `data/run/` folder already on your Mac.
+**Results are transcribed from terminal outputs supplied by the team on Nov 16, 2026. They have not been independently recomputed in this distribution.** The repository contains the real-trained models in `data/run/`; `cli demo` would overwrite them with a synthetic demo, so do not run it on a working copy.
 
 ## Data now prepared and verified by the user's printout
 

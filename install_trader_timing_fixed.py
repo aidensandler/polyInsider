@@ -4,7 +4,7 @@ import json
 import shutil
 import duckdb
 
-root = Path.home() / "Desktop/PolyInsiders_ECE473_Updated"
+root = Path(__file__).resolve().parent
 source = root / "data_events_full/live"
 v4 = root / "results_v4"
 web = root / "web"

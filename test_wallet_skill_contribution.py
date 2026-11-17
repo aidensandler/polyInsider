@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ECE 473 | Paired, chronological historical ablation of wallet-skill flow.
 
-Usage (from PolyInsiders_ECE473_Updated root):
+Usage (from the repository root):
     python test_wallet_skill_contribution.py --csv data/prepared_history.csv
 
 This script NEVER overwrites data/run or existing live models; outputs to

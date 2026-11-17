@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ECE 473 | Leakage-aware monthly walk-forward market prediction evaluation.
 
-From PolyInsiders_ECE473_Updated root:
+From the repository root:
     python test_walk_forward_polyinsiders.py --features data/run/asof_features.csv
 
 Read-only input, outputs to data/walk_forward_evaluation by default.
