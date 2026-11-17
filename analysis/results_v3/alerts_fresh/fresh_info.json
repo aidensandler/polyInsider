@@ -1,0 +1,11 @@
+{
+ "start": "2026-10-01",
+ "trades": 1201746,
+ "events": 256,
+ "Secondary: flagged wallets, original rule": {
+  "flagged_wallets": 37
+ },
+ "Secondary: flagged wallets, less conservative rule": {
+  "flagged_wallets": 244
+ }
+}

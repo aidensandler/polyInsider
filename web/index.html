@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="ECE 473 project: identifying wallet performance and forecasting unresolved events with time-stamped predictions"><title>PolyInsiders | Research Overview</title><link rel="stylesheet" href="assets/style.css"></head><body><div id="ticker"></div><div id="hdr"></div><main>
+<section class="hero"><span class="eyebrow">ECE 473 · Applied research prototype</span><h1>Can a trader’s past performance tell us anything about tomorrow?</h1><p>We study whether Polymarket wallets that outperform market prices on resolved events continue to outperform later. Our tracker records new predictions while events are still unresolved, making the test genuinely forward-looking.</p><div class="actions"><a class="btn" href="tracker.html">Explore pre-resolution tracker</a><a class="btn secondary" href="findings.html">Read historical findings</a></div></section>
+<div class="statusline"><span class="pill" style="background:#e6f4ed;color:#086a52;border:1px solid #b7ded0">Real-trained model · public API tracker</span><span>The local collector saves public API snapshots; check timestamps because a snapshot may be cached.</span></div>
+
+<!-- LATEST-V4-RESULTS -->
+<h2 class="sectiontitle">Latest V4 findings · expanded archive</h2>
+<div class="kpis">
+<div class="metric">
+<div class="tag">V4 wallet screen</div>
+<div class="val">207</div>
+<div class="lbl">Flagged of 17,254 eligible wallets</div>
+</div>
+<div class="metric">
+<div class="tag">Evaluated later</div>
+<div class="val">170</div>
+<div class="lbl">Flagged wallets with subsequent data</div>
+</div>
+<div class="metric">
+<div class="tag">Expanded training</div>
+<div class="val">2,682</div>
+<div class="lbl">Prepared markets</div>
+</div>
+<div class="metric">
+<div class="tag">Monthly backtest</div>
+<div class="val">22</div>
+<div class="lbl">Walk-forward months</div>
+</div>
+</div>
+<p class="small">
+The earlier 19-wallet result belongs to a different historical
+screen, not this V4 analysis. Wallet flags are not proof of
+nonpublic information.
+<a href="timing.html">Explore individual wallet timing →</a>
+</p>
+<!-- END LATEST-V4-RESULTS -->
+
+<h2 class="sectiontitle">Earlier historical benchmark</h2>
+<div id="hist-kpis" class="kpis"></div>
+<section class="grid"><div class="panel"><div class="hd"><h2>The research question</h2><span class="sub">Earlier outcomes → later outcomes</span></div><div class="bd prose"><p>Can we identify wallets with unusually strong returns using only information available before a cut-off date, and do those wallets perform better than comparable wallets on later events?</p><p>Our previous historical analysis suggests <strong>persistent differences in performance</strong>, not proof of insider trading. We separate wallet scoring from the new event-level probability forecast.</p><a href="methodology.html">Read the complete methods →</a></div></div><div class="panel"><div class="hd"><h2>What the TA asked for</h2><span class="sub">Our new contribution</span></div><div class="bd prose"><p><strong>Before resolution:</strong> observe public trades and market prices; score participating wallets using only their earlier resolved events; output a forecast and save its timestamp.</p><p><strong>After resolution:</strong> match the saved prediction to a verified outcome and compare forecast accuracy with the original market probability.</p><p>Unlike a retrospective leaderboard, the tracker creates an audit trail that cannot be silently replaced by hindsight.</p></div></div></section>
+<section class="panel"><div class="hd"><h2>Current tracker snapshot</h2><a href="tracker.html" class="sub">Open full tracker →</a></div><div id="live-status" class="statusline" style="padding:0 22px"></div><div id="market-feed"></div></section>
+<div class="callout warning"><p><strong>How to interpret this site:</strong> historical statistics are labeled as team-reported from the prior project. When the live collector runs, it uses a model trained on real archived fills. Saved public API snapshots may be stale after disconnection. Historical information timestamps and settlement require independent verification.</p></div>
+</main><div id="ftr"></div><script src="assets/app.js"></script><script>layout('index.html');renderHistory();loadLive();</script></body></html>

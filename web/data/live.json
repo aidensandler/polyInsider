@@ -1,0 +1,941 @@
+{
+  "updated_at": "2026-11-17T03:34:54.556119+00:00",
+  "mode": "LIVE PUBLIC API \u2014 REAL MODEL",
+  "model_source": "Aiden full historical archive - timing unverified",
+  "wallet_model_source": "Aiden full historical archive - timing unverified",
+  "markets": [
+    {
+      "captured_at": "2026-11-17T03:34:54.556119+00:00",
+      "event_id": "73130",
+      "condition_id": "0x5db999fad322cea2914535aae5517060c3f80ad6d8c0231cde2124a434d16846",
+      "question": "Will the U.S. invade Iran before 2027?",
+      "slug": "will-the-us-invade-iran-before-2027",
+      "end_date": "2027-01-01T04:59:00Z",
+      "volume_usd": 80385388.17848301,
+      "market_yes_price": 0.075,
+      "predicted_yes": 0.0656,
+      "prediction_vs_market_pp": -0.94,
+      "n_taker_trade_rows": 213,
+      "features": {
+        "logit_price": -2.512305623976115,
+        "net_flow": -0.13678401897132816,
+        "skill_flow": 0.03764826441778371,
+        "wallet_count": 5.123963979403259,
+        "log_volume": 11.406465391564138
+      },
+      "top_wallets": [
+        {
+          "wallet": "0xcfa72bb9303ef12ddf48afb2a6a1c89b2ae466e1",
+          "prior_events": 21,
+          "prior_score": 1.327,
+          "direction": "YES",
+          "amount_usd": 20.66,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x54498e4c40b17261479aeaeeddf9cc37bd46992b",
+          "prior_events": 52,
+          "prior_score": 0.794,
+          "direction": "YES",
+          "amount_usd": 15.69,
+          "history_flag": false,
+          "prob_future_outperform": 0.5555,
+          "probability_label": "forecast of future above-price advantage"
+        },
+        {
+          "wallet": "0x54498e4c40b17261479aeaeeddf9cc37bd46992b",
+          "prior_events": 52,
+          "prior_score": 0.794,
+          "direction": "NO",
+          "amount_usd": 1.1,
+          "history_flag": false,
+          "prob_future_outperform": 0.5555,
+          "probability_label": "forecast of future above-price advantage"
+        },
+        {
+          "wallet": "0x73cbcfc475a0b32996f721ceddc7a13eeb826ddb",
+          "prior_events": 1,
+          "prior_score": 0.72,
+          "direction": "YES",
+          "amount_usd": 102.3,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x73cbcfc475a0b32996f721ceddc7a13eeb826ddb",
+          "prior_events": 1,
+          "prior_score": 0.72,
+          "direction": "YES",
+          "amount_usd": 93.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x73cbcfc475a0b32996f721ceddc7a13eeb826ddb",
+          "prior_events": 1,
+          "prior_score": 0.72,
+          "direction": "YES",
+          "amount_usd": 93.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0xa58f84122535fbe42cec75d70e24ba0dd7e7cec8",
+          "prior_events": 98,
+          "prior_score": 0.602,
+          "direction": "YES",
+          "amount_usd": 40.45,
+          "history_flag": false,
+          "prob_future_outperform": 0.5167,
+          "probability_label": "forecast of future above-price advantage"
+        },
+        {
+          "wallet": "0xa58f84122535fbe42cec75d70e24ba0dd7e7cec8",
+          "prior_events": 98,
+          "prior_score": 0.602,
+          "direction": "YES",
+          "amount_usd": 39.82,
+          "history_flag": false,
+          "prob_future_outperform": 0.5167,
+          "probability_label": "forecast of future above-price advantage"
+        },
+        {
+          "wallet": "0xa58f84122535fbe42cec75d70e24ba0dd7e7cec8",
+          "prior_events": 98,
+          "prior_score": 0.602,
+          "direction": "YES",
+          "amount_usd": 8.04,
+          "history_flag": false,
+          "prob_future_outperform": 0.5167,
+          "probability_label": "forecast of future above-price advantage"
+        },
+        {
+          "wallet": "0xa58f84122535fbe42cec75d70e24ba0dd7e7cec8",
+          "prior_events": 98,
+          "prior_score": 0.602,
+          "direction": "NO",
+          "amount_usd": 2.45,
+          "history_flag": false,
+          "prob_future_outperform": 0.5167,
+          "probability_label": "forecast of future above-price advantage"
+        },
+        {
+          "wallet": "0x0b56f3f71a4443a342025c5ec95269307a7031f0",
+          "prior_events": 1,
+          "prior_score": 0.589,
+          "direction": "NO",
+          "amount_usd": 107.1,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x0b56f3f71a4443a342025c5ec95269307a7031f0",
+          "prior_events": 1,
+          "prior_score": 0.589,
+          "direction": "YES",
+          "amount_usd": 48.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        }
+      ],
+      "model_source": "Aiden full historical archive - timing unverified",
+      "model_sha256": "116fe93183579a5131e2576b48843ba104a7d34878dc2959fc74dc25f57015b7",
+      "mode": "LIVE PUBLIC API \u2014 HISTORICAL MODEL",
+      "wallet_model_source": "Aiden full historical archive - timing unverified",
+      "caveat": "Recent public taker fills only; probabilistic future skill, never proof of private information."
+    },
+    {
+      "captured_at": "2026-11-17T03:34:54.556119+00:00",
+      "event_id": "90178",
+      "condition_id": "0x0b4cc3b739e1dfe5d73274740e7308b6fb389c5af040c3a174923d928d134bee",
+      "question": "Will Jesus Christ return before 2027?",
+      "slug": "will-jesus-christ-return-before-2027",
+      "end_date": "2027-01-01T04:59:00Z",
+      "volume_usd": 69619510.15698601,
+      "market_yes_price": 0.0075,
+      "predicted_yes": 0.0066,
+      "prediction_vs_market_pp": -0.09,
+      "n_taker_trade_rows": 322,
+      "features": {
+        "logit_price": -4.885323992019081,
+        "net_flow": -0.48743788462324494,
+        "skill_flow": -0.028638038535476425,
+        "wallet_count": 5.5134287461649825,
+        "log_volume": 12.191953478503532
+      },
+      "top_wallets": [
+        {
+          "wallet": "0xa66790e2b0075e73c3781ddaf1d0b875a3aaceb3",
+          "prior_events": 270,
+          "prior_score": 1.123,
+          "direction": "NO",
+          "amount_usd": 1677.26,
+          "history_flag": false,
+          "prob_future_outperform": 0.5388,
+          "probability_label": "forecast of future above-price advantage"
+        },
+        {
+          "wallet": "0x54498e4c40b17261479aeaeeddf9cc37bd46992b",
+          "prior_events": 52,
+          "prior_score": 0.794,
+          "direction": "YES",
+          "amount_usd": 3.04,
+          "history_flag": false,
+          "prob_future_outperform": 0.5555,
+          "probability_label": "forecast of future above-price advantage"
+        },
+        {
+          "wallet": "0x54498e4c40b17261479aeaeeddf9cc37bd46992b",
+          "prior_events": 52,
+          "prior_score": 0.794,
+          "direction": "YES",
+          "amount_usd": 1.34,
+          "history_flag": false,
+          "prob_future_outperform": 0.5555,
+          "probability_label": "forecast of future above-price advantage"
+        },
+        {
+          "wallet": "0x54498e4c40b17261479aeaeeddf9cc37bd46992b",
+          "prior_events": 52,
+          "prior_score": 0.794,
+          "direction": "NO",
+          "amount_usd": 1.1,
+          "history_flag": false,
+          "prob_future_outperform": 0.5555,
+          "probability_label": "forecast of future above-price advantage"
+        },
+        {
+          "wallet": "0x54498e4c40b17261479aeaeeddf9cc37bd46992b",
+          "prior_events": 52,
+          "prior_score": 0.794,
+          "direction": "NO",
+          "amount_usd": 1.1,
+          "history_flag": false,
+          "prob_future_outperform": 0.5555,
+          "probability_label": "forecast of future above-price advantage"
+        },
+        {
+          "wallet": "0xf164ca05a048ec1ecf3c03da74c8d028c87828a4",
+          "prior_events": 6,
+          "prior_score": 0.504,
+          "direction": "YES",
+          "amount_usd": 6.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0xdd0d6182097a0cdaf919ae762d10ed6fdd7417b6",
+          "prior_events": 2,
+          "prior_score": 0.467,
+          "direction": "NO",
+          "amount_usd": 1980.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x90f92595bcb3d8a678a3c4a5c325201e0e5a1a71",
+          "prior_events": 10,
+          "prior_score": 0.453,
+          "direction": "YES",
+          "amount_usd": 30.02,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x90f92595bcb3d8a678a3c4a5c325201e0e5a1a71",
+          "prior_events": 10,
+          "prior_score": 0.453,
+          "direction": "YES",
+          "amount_usd": 17.82,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x90f92595bcb3d8a678a3c4a5c325201e0e5a1a71",
+          "prior_events": 10,
+          "prior_score": 0.453,
+          "direction": "YES",
+          "amount_usd": 0.77,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x90f92595bcb3d8a678a3c4a5c325201e0e5a1a71",
+          "prior_events": 10,
+          "prior_score": 0.453,
+          "direction": "YES",
+          "amount_usd": 0.64,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x90f92595bcb3d8a678a3c4a5c325201e0e5a1a71",
+          "prior_events": 10,
+          "prior_score": 0.453,
+          "direction": "YES",
+          "amount_usd": 0.32,
+          "history_flag": false,
+          "prob_future_outperform": null
+        }
+      ],
+      "model_source": "Aiden full historical archive - timing unverified",
+      "model_sha256": "116fe93183579a5131e2576b48843ba104a7d34878dc2959fc74dc25f57015b7",
+      "mode": "LIVE PUBLIC API \u2014 HISTORICAL MODEL",
+      "wallet_model_source": "Aiden full historical archive - timing unverified",
+      "caveat": "Recent public taker fills only; probabilistic future skill, never proof of private information."
+    },
+    {
+      "captured_at": "2026-11-17T03:34:54.556119+00:00",
+      "event_id": "30829",
+      "condition_id": "0x30cfb887558b20373a984da60c372fe5a90c0296aa6d8bb413a8aa7543846da2",
+      "question": "Will Bernie Sanders win the 2028 Democratic presidential nomination?",
+      "slug": "will-bernie-sanders-win-the-2028-democratic-presidential-nomination-879",
+      "end_date": "2028-11-08T04:59:00Z",
+      "volume_usd": 52993762.67407399,
+      "market_yes_price": 0.0025,
+      "predicted_yes": 0.0014,
+      "prediction_vs_market_pp": -0.11,
+      "n_taker_trade_rows": 24,
+      "features": {
+        "logit_price": -5.988961416889864,
+        "net_flow": 0.09718763214744323,
+        "skill_flow": 5.042006790252259e-06,
+        "wallet_count": 2.1972245773362196,
+        "log_volume": 9.107311310033408
+      },
+      "top_wallets": [
+        {
+          "wallet": "0x79e4f824001e5071048f4bf7aeaedb986948d497",
+          "prior_events": 5,
+          "prior_score": 0.015,
+          "direction": "YES",
+          "amount_usd": 2.99,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x59ea24c3208cc3805c8a4bd4014a7052d53d5b5f",
+          "prior_events": 0,
+          "prior_score": 0.0,
+          "direction": "YES",
+          "amount_usd": 853.43,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0xf256e3279588213d95b42aa059d5c4ee8c6a70cc",
+          "prior_events": 0,
+          "prior_score": 0.0,
+          "direction": "YES",
+          "amount_usd": 842.47,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x74d085ad7e3ca19beb868004bd727158b3396487",
+          "prior_events": 0,
+          "prior_score": 0.0,
+          "direction": "YES",
+          "amount_usd": 769.68,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0xb7d2ece52586b73db9eb44c2ecf2452e4ce4def3",
+          "prior_events": 0,
+          "prior_score": 0.0,
+          "direction": "YES",
+          "amount_usd": 732.79,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x094c02ad33f9a4e38da55609009b2b728a2d67d7",
+          "prior_events": 0,
+          "prior_score": 0.0,
+          "direction": "YES",
+          "amount_usd": 722.83,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0xea099f6d6f0e78328fd7e29bd292501fb11d8415",
+          "prior_events": 0,
+          "prior_score": 0.0,
+          "direction": "YES",
+          "amount_usd": 709.86,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x74d085ad7e3ca19beb868004bd727158b3396487",
+          "prior_events": 0,
+          "prior_score": 0.0,
+          "direction": "NO",
+          "amount_usd": 528.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x094c02ad33f9a4e38da55609009b2b728a2d67d7",
+          "prior_events": 0,
+          "prior_score": 0.0,
+          "direction": "NO",
+          "amount_usd": 525.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0xb7d2ece52586b73db9eb44c2ecf2452e4ce4def3",
+          "prior_events": 0,
+          "prior_score": 0.0,
+          "direction": "NO",
+          "amount_usd": 477.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x59ea24c3208cc3805c8a4bd4014a7052d53d5b5f",
+          "prior_events": 0,
+          "prior_score": 0.0,
+          "direction": "NO",
+          "amount_usd": 473.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x59ea24c3208cc3805c8a4bd4014a7052d53d5b5f",
+          "prior_events": 0,
+          "prior_score": 0.0,
+          "direction": "NO",
+          "amount_usd": 436.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        }
+      ],
+      "model_source": "Aiden full historical archive - timing unverified",
+      "model_sha256": "116fe93183579a5131e2576b48843ba104a7d34878dc2959fc74dc25f57015b7",
+      "mode": "LIVE PUBLIC API \u2014 HISTORICAL MODEL",
+      "wallet_model_source": "Aiden full historical archive - timing unverified",
+      "caveat": "Recent public taker fills only; probabilistic future skill, never proof of private information."
+    },
+    {
+      "captured_at": "2026-11-17T03:34:54.556119+00:00",
+      "event_id": "30829",
+      "condition_id": "0xf2e51acfbb6d0414dc2ace81b7dc2af7c165e443dcb91f6caa7aab6d6ab4f06d",
+      "question": "Will Chelsea Clinton win the 2028 Democratic presidential nomination?",
+      "slug": "will-chelsea-clinton-win-the-2028-democratic-presidential-nomination",
+      "end_date": "2028-11-08T04:59:00Z",
+      "volume_usd": 51137915.448718995,
+      "market_yes_price": 0.0055,
+      "predicted_yes": 0.0103,
+      "prediction_vs_market_pp": 0.48,
+      "n_taker_trade_rows": 103,
+      "features": {
+        "logit_price": -5.197492006055602,
+        "net_flow": -0.8832647209061534,
+        "skill_flow": -0.00010122109204440046,
+        "wallet_count": 2.0794415416798357,
+        "log_volume": 4.089905691663622
+      },
+      "top_wallets": [
+        {
+          "wallet": "0x054a7d48a02d7afbea1f6336afb07e0d4e865347",
+          "prior_events": 5,
+          "prior_score": 0.056,
+          "direction": "NO",
+          "amount_usd": 0.04,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x054a7d48a02d7afbea1f6336afb07e0d4e865347",
+          "prior_events": 5,
+          "prior_score": 0.056,
+          "direction": "NO",
+          "amount_usd": 0.03,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x054a7d48a02d7afbea1f6336afb07e0d4e865347",
+          "prior_events": 5,
+          "prior_score": 0.056,
+          "direction": "NO",
+          "amount_usd": 0.03,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x054a7d48a02d7afbea1f6336afb07e0d4e865347",
+          "prior_events": 5,
+          "prior_score": 0.056,
+          "direction": "NO",
+          "amount_usd": 0.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x054a7d48a02d7afbea1f6336afb07e0d4e865347",
+          "prior_events": 5,
+          "prior_score": 0.056,
+          "direction": "NO",
+          "amount_usd": 0.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x054a7d48a02d7afbea1f6336afb07e0d4e865347",
+          "prior_events": 5,
+          "prior_score": 0.056,
+          "direction": "NO",
+          "amount_usd": 0.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x054a7d48a02d7afbea1f6336afb07e0d4e865347",
+          "prior_events": 5,
+          "prior_score": 0.056,
+          "direction": "NO",
+          "amount_usd": 0.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x054a7d48a02d7afbea1f6336afb07e0d4e865347",
+          "prior_events": 5,
+          "prior_score": 0.056,
+          "direction": "NO",
+          "amount_usd": 0.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x054a7d48a02d7afbea1f6336afb07e0d4e865347",
+          "prior_events": 5,
+          "prior_score": 0.056,
+          "direction": "NO",
+          "amount_usd": 0.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x054a7d48a02d7afbea1f6336afb07e0d4e865347",
+          "prior_events": 5,
+          "prior_score": 0.056,
+          "direction": "NO",
+          "amount_usd": 0.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x054a7d48a02d7afbea1f6336afb07e0d4e865347",
+          "prior_events": 5,
+          "prior_score": 0.056,
+          "direction": "NO",
+          "amount_usd": 0.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x054a7d48a02d7afbea1f6336afb07e0d4e865347",
+          "prior_events": 5,
+          "prior_score": 0.056,
+          "direction": "NO",
+          "amount_usd": 0.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        }
+      ],
+      "model_source": "Aiden full historical archive - timing unverified",
+      "model_sha256": "116fe93183579a5131e2576b48843ba104a7d34878dc2959fc74dc25f57015b7",
+      "mode": "LIVE PUBLIC API \u2014 HISTORICAL MODEL",
+      "wallet_model_source": "Aiden full historical archive - timing unverified",
+      "caveat": "Recent public taker fills only; probabilistic future skill, never proof of private information."
+    },
+    {
+      "captured_at": "2026-11-17T03:34:54.556119+00:00",
+      "event_id": "34044",
+      "condition_id": "0xd9fb1184af0064e5e34b129f5b79afa5a17b7e32f2953ab05efed82315fee6d4",
+      "question": "Will China invade Taiwan by end of 2026?",
+      "slug": "will-china-invade-taiwan-before-2027",
+      "end_date": "2027-01-01T04:59:00Z",
+      "volume_usd": 46673233.267434,
+      "market_yes_price": 0.0165,
+      "predicted_yes": 0.0084,
+      "prediction_vs_market_pp": -0.81,
+      "n_taker_trade_rows": 184,
+      "features": {
+        "logit_price": -4.087757256922579,
+        "net_flow": 0.5040929395548666,
+        "skill_flow": 0.0005301523702329048,
+        "wallet_count": 4.882801922586371,
+        "log_volume": 12.324319861335871
+      },
+      "top_wallets": [
+        {
+          "wallet": "0x05474155c749a558ae6adb76050a748a8820fb35",
+          "prior_events": 94,
+          "prior_score": 1.057,
+          "direction": "NO",
+          "amount_usd": 97.9,
+          "history_flag": false,
+          "prob_future_outperform": 0.5781,
+          "probability_label": "forecast of future above-price advantage"
+        },
+        {
+          "wallet": "0x3896a566a86036bd4764c08b3ec6e2d400a2ece6",
+          "prior_events": 1,
+          "prior_score": 0.8,
+          "direction": "YES",
+          "amount_usd": 147.6,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0xfa69e2ca915dd5cf170453f99a0b8fe0ce3d40cb",
+          "prior_events": 1,
+          "prior_score": 0.62,
+          "direction": "YES",
+          "amount_usd": 51.14,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0xf3ca90002a591c8abcb39f8b0d83d2885d0f60ae",
+          "prior_events": 6,
+          "prior_score": 0.49,
+          "direction": "YES",
+          "amount_usd": 391.6,
+          "history_flag": false,
+          "prob_future_outperform": 0.4404,
+          "probability_label": "forecast of future above-price advantage"
+        },
+        {
+          "wallet": "0x491890ef1e85cf5a3942a19a305a2020f304c7b5",
+          "prior_events": 2,
+          "prior_score": 0.489,
+          "direction": "NO",
+          "amount_usd": 195.8,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x491890ef1e85cf5a3942a19a305a2020f304c7b5",
+          "prior_events": 2,
+          "prior_score": 0.489,
+          "direction": "NO",
+          "amount_usd": 98.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x3fd29a0839758421a1938f60243deee19efe9b6a",
+          "prior_events": 1,
+          "prior_score": 0.4,
+          "direction": "YES",
+          "amount_usd": 0.49,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x2cf9040c87987fc0799fc3ae032a01136867682a",
+          "prior_events": 1,
+          "prior_score": 0.4,
+          "direction": "YES",
+          "amount_usd": 0.3,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x71917e2e8b4ae4b41235a0827ce094f988d74c4e",
+          "prior_events": 2,
+          "prior_score": 0.361,
+          "direction": "YES",
+          "amount_usd": 0.2,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x42477970683d4d0a52ec7082fee5d760cc5591c4",
+          "prior_events": 29,
+          "prior_score": 0.329,
+          "direction": "YES",
+          "amount_usd": 1.85,
+          "history_flag": false,
+          "prob_future_outperform": 0.553,
+          "probability_label": "forecast of future above-price advantage"
+        },
+        {
+          "wallet": "0x279c5de35108afc30b99f09e595555b428e92b82",
+          "prior_events": 4,
+          "prior_score": 0.301,
+          "direction": "NO",
+          "amount_usd": 196.52,
+          "history_flag": false,
+          "prob_future_outperform": 0.4695,
+          "probability_label": "forecast of future above-price advantage"
+        },
+        {
+          "wallet": "0x279c5de35108afc30b99f09e595555b428e92b82",
+          "prior_events": 4,
+          "prior_score": 0.301,
+          "direction": "NO",
+          "amount_usd": 156.22,
+          "history_flag": false,
+          "prob_future_outperform": 0.4695,
+          "probability_label": "forecast of future above-price advantage"
+        }
+      ],
+      "model_source": "Aiden full historical archive - timing unverified",
+      "model_sha256": "116fe93183579a5131e2576b48843ba104a7d34878dc2959fc74dc25f57015b7",
+      "mode": "LIVE PUBLIC API \u2014 HISTORICAL MODEL",
+      "wallet_model_source": "Aiden full historical archive - timing unverified",
+      "caveat": "Recent public taker fills only; probabilistic future skill, never proof of private information."
+    },
+    {
+      "captured_at": "2026-11-17T03:34:54.556119+00:00",
+      "event_id": "90177",
+      "condition_id": "0x747dc809fb79e1b05be09c42d6179459a58de2ef3e40f02484a4e1260f741f75",
+      "question": "Will the US confirm that aliens exist before 2027?",
+      "slug": "will-the-us-confirm-that-aliens-exist-before-2027-789-924-249",
+      "end_date": "2027-01-01T04:59:00Z",
+      "volume_usd": 46507152.59054801,
+      "market_yes_price": 0.0175,
+      "predicted_yes": 0.015,
+      "prediction_vs_market_pp": -0.25,
+      "n_taker_trade_rows": 242,
+      "features": {
+        "logit_price": -4.027899462813948,
+        "net_flow": 0.10725167125941101,
+        "skill_flow": 0.06140628667168929,
+        "wallet_count": 5.267858159063328,
+        "log_volume": 10.200291783479965
+      },
+      "top_wallets": [
+        {
+          "wallet": "0x923c732f09c756fc052df43eba27705fd5ce3295",
+          "prior_events": 1,
+          "prior_score": 0.72,
+          "direction": "YES",
+          "amount_usd": 20.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x2c28f8f489bfaa165d7bcdbc92601191180a7d1f",
+          "prior_events": 1,
+          "prior_score": 0.72,
+          "direction": "YES",
+          "amount_usd": 1.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x2c28f8f489bfaa165d7bcdbc92601191180a7d1f",
+          "prior_events": 1,
+          "prior_score": 0.72,
+          "direction": "YES",
+          "amount_usd": 1.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x2cf9040c87987fc0799fc3ae032a01136867682a",
+          "prior_events": 1,
+          "prior_score": 0.4,
+          "direction": "YES",
+          "amount_usd": 0.49,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x005eb261ca5e00261ed10b04e039444929167186",
+          "prior_events": 1,
+          "prior_score": 0.3,
+          "direction": "YES",
+          "amount_usd": 0.2,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x1c8fc445252eb2ee6790df4db61becc0245c4182",
+          "prior_events": 4,
+          "prior_score": 0.242,
+          "direction": "YES",
+          "amount_usd": 22.38,
+          "history_flag": false,
+          "prob_future_outperform": 0.5603,
+          "probability_label": "forecast of future above-price advantage"
+        },
+        {
+          "wallet": "0x0889688027db4a967c4804319d87b58d1a8de7a4",
+          "prior_events": 1,
+          "prior_score": 0.24,
+          "direction": "YES",
+          "amount_usd": 28.42,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x0889688027db4a967c4804319d87b58d1a8de7a4",
+          "prior_events": 1,
+          "prior_score": 0.24,
+          "direction": "NO",
+          "amount_usd": 28.42,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x4192d12c284fdce3f3cdbb813a028c2827a1278e",
+          "prior_events": 1,
+          "prior_score": 0.207,
+          "direction": "YES",
+          "amount_usd": 11.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x6ad9bc0a73472746abf6f7d5df282b0879d1d813",
+          "prior_events": 1,
+          "prior_score": 0.207,
+          "direction": "YES",
+          "amount_usd": 9.82,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0xc550e5ee1011afb6d37c7fbb18fea32e03f9272d",
+          "prior_events": 3,
+          "prior_score": 0.205,
+          "direction": "YES",
+          "amount_usd": 9237.67,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x2861ebb676bbd4204182564218ac9b3299cee928",
+          "prior_events": 1,
+          "prior_score": 0.2,
+          "direction": "YES",
+          "amount_usd": 0.98,
+          "history_flag": false,
+          "prob_future_outperform": null
+        }
+      ],
+      "model_source": "Aiden full historical archive - timing unverified",
+      "model_sha256": "116fe93183579a5131e2576b48843ba104a7d34878dc2959fc74dc25f57015b7",
+      "mode": "LIVE PUBLIC API \u2014 HISTORICAL MODEL",
+      "wallet_model_source": "Aiden full historical archive - timing unverified",
+      "caveat": "Recent public taker fills only; probabilistic future skill, never proof of private information."
+    },
+    {
+      "captured_at": "2026-11-17T03:34:54.556119+00:00",
+      "event_id": "31875",
+      "condition_id": "0xd1747284d6048b2a3dcfbee489db405f36de18f9590197dd0e5c9f0c246bf050",
+      "question": "Will Byron Donalds win the 2028 Republican presidential nomination?",
+      "slug": "will-byron-donalds-win-the-2028-republican-presidential-nomination",
+      "end_date": "2028-11-08T04:59:00Z",
+      "volume_usd": 44973234.250755,
+      "market_yes_price": 0.0065,
+      "predicted_yes": 0.01,
+      "prediction_vs_market_pp": 0.35,
+      "n_taker_trade_rows": 8,
+      "features": {
+        "logit_price": -5.02943188509028,
+        "net_flow": -0.13929288759815897,
+        "skill_flow": 0.0,
+        "wallet_count": 2.1972245773362196,
+        "log_volume": 3.2671526764232723
+      },
+      "top_wallets": [
+        {
+          "wallet": "0xdb20466213160f518a65e0537b41792d799d76ae",
+          "prior_events": 0,
+          "prior_score": 0.0,
+          "direction": "NO",
+          "amount_usd": 12.0,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x677b90b0b4a87727186e793d40d5bffe5e14dcf1",
+          "prior_events": 0,
+          "prior_score": 0.0,
+          "direction": "YES",
+          "amount_usd": 2.95,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0xcea321c434e6c6c62c30657d4ec3448077492c4e",
+          "prior_events": 0,
+          "prior_score": 0.0,
+          "direction": "YES",
+          "amount_usd": 2.95,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x63ec507a58053ef35761accf3fed7803a13dffa0",
+          "prior_events": 0,
+          "prior_score": 0.0,
+          "direction": "YES",
+          "amount_usd": 2.95,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0xf69c111fdd4c621d1920d1eb9a97c3ab7d935ad6",
+          "prior_events": 0,
+          "prior_score": 0.0,
+          "direction": "NO",
+          "amount_usd": 1.83,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x718ce7e4279f90d940aec3d25a699809ed78ae99",
+          "prior_events": 0,
+          "prior_score": 0.0,
+          "direction": "YES",
+          "amount_usd": 0.99,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0x7b4488a90b4290c002f295cfdfd49be68c4277ec",
+          "prior_events": 0,
+          "prior_score": 0.0,
+          "direction": "NO",
+          "amount_usd": 0.55,
+          "history_flag": false,
+          "prob_future_outperform": null
+        },
+        {
+          "wallet": "0xae4d379f934a86802e0835b8add110dd10bb9c38",
+          "prior_events": 1,
+          "prior_score": -0.06,
+          "direction": "YES",
+          "amount_usd": 1.02,
+          "history_flag": false,
+          "prob_future_outperform": null
+        }
+      ],
+      "model_source": "Aiden full historical archive - timing unverified",
+      "model_sha256": "116fe93183579a5131e2576b48843ba104a7d34878dc2959fc74dc25f57015b7",
+      "mode": "LIVE PUBLIC API \u2014 HISTORICAL MODEL",
+      "wallet_model_source": "Aiden full historical archive - timing unverified",
+      "caveat": "Recent public taker fills only; probabilistic future skill, never proof of private information."
+    }
+  ],
+  "errors": [
+    {
+      "condition_id": "0x1945a8b23e313ed7423b6b6fd556f9ab5578900376b565a61dc480a5f4f35d21",
+      "error": "Fewer than 3 verified pre-snapshot fill rows"
+    }
+  ],
+  "note": "Read-only real public API poll. Wallet/model training provenance shown separately. Each snapshot logged before resolution."
+}

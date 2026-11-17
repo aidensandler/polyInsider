@@ -1,0 +1,29 @@
+PolyInsiders | ECE 473 — Updated Final Research Summary
+
+Research: wallet performance persistence, market forecasting, and trader timing.
+
+Archive: 35,583,634 fill-side records; 3,713 markets.
+
+Prepared: 2,682 markets; 383,170 wallet-market observations; 179,824 unique wallets.
+
+Walk-forward: 2,645 markets, 1,117 events, 22 months.
+
+PolyInsiders with wallet skill: AUC 0.935207, Brier 0.095509, log loss 0.301750.
+
+Polymarket baseline: AUC 0.935822, Brier 0.095733, log loss 0.302051.
+
+Wallet-skill Brier difference: -0.00004830. 95% CI [-0.0001623, 5.88e-05].
+
+Separate wallet-model test AUC: 0.5809; 991 wallets.
+
+Aiden V4 screen: 207/17,254 flagged, 170 with later evaluation data.
+
+Exploratory timing: 44 wallets meet June–August vs September–November criteria; 22 show positive later excess at discovery-selected UTC hour.
+
+Snapshots are approximately 24 hours before recorded information time with 48 hours of preceding fills. Many information times are scheduled-end proxies.
+
+No reliable wallet-skill incremental effect is established. Neither V4 flags nor timing patterns prove insider trading.
+
+The website uses local public API collection; localhost alone is not a publicly hosted website.
+
+Reproduction requires the companion model-ready CSV; the raw archive is held separately by the team.

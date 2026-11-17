@@ -1,0 +1,22 @@
+{
+  "source": "SYNTHETIC DEMONSTRATION",
+  "trained_markets": 154,
+  "test_markets": 66,
+  "train_events": 154,
+  "test_events": 66,
+  "train_last_resolution": "2025-11-12T00:00:00+00:00",
+  "test_first_snapshot": "2025-11-13T00:00:00+00:00",
+  "model": {
+    "n": 66,
+    "brier": 0.1407,
+    "log_loss": 0.4541,
+    "auc": 0.8898
+  },
+  "market_baseline": {
+    "n": 66,
+    "brier": 0.2249,
+    "log_loss": 0.6424,
+    "auc": 0.6852
+  },
+  "note": "Held-out events only; no training event resolves after first test snapshot."
+}

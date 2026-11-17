@@ -1,0 +1,53 @@
+{
+  "source": "Aiden full historical archive - timing unverified",
+  "target": "positive mean signed price edge on >=3 future resolved events (NOT private information)",
+  "train_wallet_windows": 1417,
+  "test_wallets": 991,
+  "train_unique_wallets": 1179,
+  "test_unique_wallets": 991,
+  "train_labels_end_before": "2026-09-25T10:45:20+00:00",
+  "test_features_frozen_at": "2026-09-25T10:45:20+00:00",
+  "test_labels_end_before": "2026-11-14T08:41:40.301830001+00:00",
+  "test_auc": 0.5809,
+  "test_brier": 0.2501,
+  "base_rate_brier": 0.2549,
+  "test_positive_share": 0.5025,
+  "test_example": [
+    {
+      "wallet": "0x000d257d2dc7616feaef4ae0f14600fdf50a758e",
+      "prior_events": 29,
+      "future_events": 4,
+      "future_mean_edge": 0.06449999999999999,
+      "future_outperform": 1
+    },
+    {
+      "wallet": "0x005ed998fcb786679eb8bfd0d20c15c0903d6d8e",
+      "prior_events": 69,
+      "future_events": 89,
+      "future_mean_edge": -0.01277143025682183,
+      "future_outperform": 0
+    },
+    {
+      "wallet": "0x011f2d377e56119fb09196dffb0948ae55711122",
+      "prior_events": 27,
+      "future_events": 11,
+      "future_mean_edge": 0.027136363636363636,
+      "future_outperform": 1
+    },
+    {
+      "wallet": "0x0130afd6f3efddf1c3e16e01217b172dd9befb49",
+      "prior_events": 30,
+      "future_events": 10,
+      "future_mean_edge": -0.02049335000000002,
+      "future_outperform": 0
+    },
+    {
+      "wallet": "0x014c4e7ae2145992861c2d1b124af633a97f820c",
+      "prior_events": 4,
+      "future_events": 3,
+      "future_mean_edge": -0.3066666666666667,
+      "future_outperform": 0
+    }
+  ],
+  "limitations": "One repeated wallet can appear across time windows; sample does not independently prove insider knowledge or warrant claims of significance."
+}

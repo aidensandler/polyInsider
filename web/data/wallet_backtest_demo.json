@@ -1,0 +1,53 @@
+{
+  "source": "SYNTHETIC DEMONSTRATION",
+  "target": "positive mean signed price edge on >=3 future resolved events (NOT private information)",
+  "train_wallet_windows": 140,
+  "test_wallets": 70,
+  "train_unique_wallets": 70,
+  "test_unique_wallets": 70,
+  "train_labels_end_before": "2025-12-14T00:00:00+00:00",
+  "test_features_frozen_at": "2025-12-14T00:00:00+00:00",
+  "test_labels_end_before": "2026-03-24T00:00:00.000000001+00:00",
+  "test_auc": 0.6931,
+  "test_brier": 0.2069,
+  "base_rate_brier": 0.2518,
+  "test_positive_share": 0.5571,
+  "test_example": [
+    {
+      "wallet": "demo_wallet_000",
+      "prior_events": 56,
+      "future_events": 13,
+      "future_mean_edge": 0.32276153846153843,
+      "future_outperform": 1
+    },
+    {
+      "wallet": "demo_wallet_001",
+      "prior_events": 47,
+      "future_events": 16,
+      "future_mean_edge": 0.46710625,
+      "future_outperform": 1
+    },
+    {
+      "wallet": "demo_wallet_002",
+      "prior_events": 44,
+      "future_events": 16,
+      "future_mean_edge": 0.3094875,
+      "future_outperform": 1
+    },
+    {
+      "wallet": "demo_wallet_003",
+      "prior_events": 56,
+      "future_events": 13,
+      "future_mean_edge": 0.30313076923076926,
+      "future_outperform": 1
+    },
+    {
+      "wallet": "demo_wallet_004",
+      "prior_events": 45,
+      "future_events": 18,
+      "future_mean_edge": 0.3510111111111111,
+      "future_outperform": 1
+    }
+  ],
+  "limitations": "One repeated wallet can appear across time windows; sample does not independently prove insider knowledge or warrant claims of significance."
+}

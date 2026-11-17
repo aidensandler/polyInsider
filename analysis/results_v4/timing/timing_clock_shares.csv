@@ -1,0 +1,112 @@
+clock,group,bucket,pooled_dollar_share,wallet_equal_share,wallet_equal_lo,wallet_equal_hi,wallets,dollars
+Share of the market's life elapsed,Flagged wallets (less conservative rule),0-10%,0.01334462316945523,0.05530648898826748,0.03848011442940395,0.07477849594160683,124.0,49678677.3772243
+Share of the market's life elapsed,Flagged wallets (less conservative rule),10-20%,0.015337007942416353,0.05547704085544875,0.038127067630635926,0.07675587904203142,124.0,49678677.3772243
+Share of the market's life elapsed,Flagged wallets (less conservative rule),20-30%,0.020110566682695393,0.0737438080961244,0.05247103391401379,0.09723762712238021,124.0,49678677.3772243
+Share of the market's life elapsed,Flagged wallets (less conservative rule),30-40%,0.025257403873176043,0.06518759602842766,0.04859965621027902,0.08307774191491714,124.0,49678677.3772243
+Share of the market's life elapsed,Flagged wallets (less conservative rule),40-50%,0.028910805292368228,0.07897074797973358,0.05997646664377113,0.10325614475658106,124.0,49678677.3772243
+Share of the market's life elapsed,Flagged wallets (less conservative rule),50-60%,0.046884697435523655,0.09064184082249811,0.06904098701120086,0.11185659342984237,124.0,49678677.3772243
+Share of the market's life elapsed,Flagged wallets (less conservative rule),60-70%,0.04080644522057862,0.06772567572160378,0.054014646113128374,0.0820831087876123,124.0,49678677.3772243
+Share of the market's life elapsed,Flagged wallets (less conservative rule),70-80%,0.04652383595547219,0.07331278924089232,0.05713661509505154,0.09260035215998919,124.0,49678677.3772243
+Share of the market's life elapsed,Flagged wallets (less conservative rule),80-90%,0.14858459073283486,0.10375392174575693,0.08508028027076317,0.12374333618055401,124.0,49678677.3772243
+Share of the market's life elapsed,Flagged wallets (less conservative rule),90-100%,0.6142400236954794,0.33588009052124695,0.28847222662251765,0.3857105021158505,124.0,49678677.3772243
+Share of the market's life elapsed,Other experienced wallets,0-10%,0.011231522785922448,0.0367916229808497,,,3372.0,645893287.362547
+Share of the market's life elapsed,Other experienced wallets,10-20%,0.01224069889495816,0.041526669164724604,,,3372.0,645893287.362547
+Share of the market's life elapsed,Other experienced wallets,20-30%,0.015755295677254144,0.05237008482760874,,,3372.0,645893287.362547
+Share of the market's life elapsed,Other experienced wallets,30-40%,0.0192947837890621,0.05638313550166217,,,3372.0,645893287.362547
+Share of the market's life elapsed,Other experienced wallets,40-50%,0.026484272070808664,0.06765776362341515,,,3372.0,645893287.362547
+Share of the market's life elapsed,Other experienced wallets,50-60%,0.05219628675070174,0.09410035349569103,,,3372.0,645893287.362547
+Share of the market's life elapsed,Other experienced wallets,60-70%,0.06451006166039272,0.08793598801443882,,,3372.0,645893287.362547
+Share of the market's life elapsed,Other experienced wallets,70-80%,0.07678636861844859,0.07642817626770412,,,3372.0,645893287.362547
+Share of the market's life elapsed,Other experienced wallets,80-90%,0.1421005772677758,0.12188761790988537,,,3372.0,645893287.362547
+Share of the market's life elapsed,Other experienced wallets,90-100%,0.5794001324846764,0.3649185882140192,,,3372.0,645893287.362547
+Share of the market's life elapsed,All traders,0-10%,0.007909199672338683,,,,,
+Share of the market's life elapsed,All traders,10-20%,0.010844608096590453,,,,,
+Share of the market's life elapsed,All traders,20-30%,0.01895696864559848,,,,,
+Share of the market's life elapsed,All traders,30-40%,0.06858930504107859,,,,,
+Share of the market's life elapsed,All traders,40-50%,0.06950546682055034,,,,,
+Share of the market's life elapsed,All traders,50-60%,0.08089877378054505,,,,,
+Share of the market's life elapsed,All traders,60-70%,0.063107366088719,,,,,
+Share of the market's life elapsed,All traders,70-80%,0.06264997022194044,,,,,
+Share of the market's life elapsed,All traders,80-90%,0.10319827742807772,,,,,
+Share of the market's life elapsed,All traders,90-100%,0.5143400642045614,,,,,
+Time before the market resolved,Flagged wallets (less conservative rule),under 1 h,0.006085392048803089,0.0022067759516441656,0.000485357295539492,0.004774301273116747,124.0,49678677.37722428
+Time before the market resolved,Flagged wallets (less conservative rule),1-6 h,0.13639436389106974,0.05851166068450816,0.04258544846696732,0.07655396280410565,124.0,49678677.37722428
+Time before the market resolved,Flagged wallets (less conservative rule),6-24 h,0.10290749371182469,0.07885655988048763,0.05873703416532708,0.10198458377769415,124.0,49678677.37722428
+Time before the market resolved,Flagged wallets (less conservative rule),1-3 days,0.18863450174641722,0.08878874306817906,0.06714043055144298,0.11335386248821533,124.0,49678677.37722428
+Time before the market resolved,Flagged wallets (less conservative rule),3-7 days,0.10458473220443405,0.07072788806323738,0.054314624473903214,0.09019234366183557,124.0,49678677.37722428
+Time before the market resolved,Flagged wallets (less conservative rule),7-30 days,0.24325991918590964,0.2010533621491143,0.17255096626433172,0.23087677319830735,124.0,49678677.37722428
+Time before the market resolved,Flagged wallets (less conservative rule),30-90 days,0.13821068613134804,0.20396190342279982,0.1691744875806985,0.24179280845775591,124.0,49678677.37722428
+Time before the market resolved,Flagged wallets (less conservative rule),90+ days,0.07992291108019361,0.2958931067800296,0.2369203651953327,0.3560385793592352,124.0,49678677.37722428
+Time before the market resolved,Other experienced wallets,under 1 h,0.008615827185830394,0.002805539422432689,,,3372.0,645893287.3625473
+Time before the market resolved,Other experienced wallets,1-6 h,0.08685819980667402,0.04239815519407256,,,3372.0,645893287.3625473
+Time before the market resolved,Other experienced wallets,6-24 h,0.11352952415122046,0.07755651183407235,,,3372.0,645893287.3625473
+Time before the market resolved,Other experienced wallets,1-3 days,0.16889447556280768,0.09634715215575228,,,3372.0,645893287.3625473
+Time before the market resolved,Other experienced wallets,3-7 days,0.10782917693913195,0.07927956714197187,,,3372.0,645893287.3625473
+Time before the market resolved,Other experienced wallets,7-30 days,0.2693203720880261,0.23766697191266392,,,3372.0,645893287.3625473
+Time before the market resolved,Other experienced wallets,30-90 days,0.16525453128192197,0.2180470995553694,,,3372.0,645893287.3625473
+Time before the market resolved,Other experienced wallets,90+ days,0.07969789298438743,0.24589900278366497,,,3372.0,645893287.3625473
+Time before the market resolved,All traders,under 1 h,0.007754393165194433,,,,,
+Time before the market resolved,All traders,1-6 h,0.08400422986582962,,,,,
+Time before the market resolved,All traders,6-24 h,0.1061471582756969,,,,,
+Time before the market resolved,All traders,1-3 days,0.15450127036165429,,,,,
+Time before the market resolved,All traders,3-7 days,0.08198159053608861,,,,,
+Time before the market resolved,All traders,7-30 days,0.1990973324339692,,,,,
+Time before the market resolved,All traders,30-90 days,0.20279790911325676,,,,,
+Time before the market resolved,All traders,90+ days,0.16371611624831015,,,,,
+Time relative to the market's biggest price shift,Flagged wallets (less conservative rule),7+ days before,0.16028113540544622,0.2793989600002539,0.2381791191607865,0.32071524794465306,113.0,33451032.458168264
+Time relative to the market's biggest price shift,Flagged wallets (less conservative rule),1-7 days before,0.07672243214407008,0.0599612568965102,0.04576889101239675,0.07382498944519196,113.0,33451032.458168264
+Time relative to the market's biggest price shift,Flagged wallets (less conservative rule),7-24 h before,0.025924872878011665,0.02425203006488052,0.017333422464430603,0.033197704918431055,113.0,33451032.458168264
+Time relative to the market's biggest price shift,Flagged wallets (less conservative rule),2-6 h before,0.030957679486517092,0.033154753329079106,0.024462689198326344,0.04230534222677311,113.0,33451032.458168264
+Time relative to the market's biggest price shift,Flagged wallets (less conservative rule),the hour before,0.018427192001432297,0.03491944919254573,0.02205408755340571,0.05269546648583639,113.0,33451032.458168264
+Time relative to the market's biggest price shift,Flagged wallets (less conservative rule),the hour of the shift,0.07039016338289716,0.0737745474996419,0.05316821171879912,0.09895607402716083,113.0,33451032.458168264
+Time relative to the market's biggest price shift,Flagged wallets (less conservative rule),1-6 h after,0.13436114281759226,0.06786091912065373,0.05180895109459365,0.08722485292136678,113.0,33451032.458168264
+Time relative to the market's biggest price shift,Flagged wallets (less conservative rule),7-24 h after,0.1131031207449899,0.04321415758628607,0.03217981551905451,0.0559305677737084,113.0,33451032.458168264
+Time relative to the market's biggest price shift,Flagged wallets (less conservative rule),24+ h after,0.3698322611390433,0.38346392631014886,0.338373585741238,0.4266107476411854,113.0,33451032.458168264
+Time relative to the market's biggest price shift,Other experienced wallets,7+ days before,0.218248430411739,0.3104716833931815,,,2580.0,335973755.71636057
+Time relative to the market's biggest price shift,Other experienced wallets,1-7 days before,0.06597301768256002,0.0737011666180826,,,2580.0,335973755.71636057
+Time relative to the market's biggest price shift,Other experienced wallets,7-24 h before,0.025947783487687056,0.02643887941638288,,,2580.0,335973755.71636057
+Time relative to the market's biggest price shift,Other experienced wallets,2-6 h before,0.02860895999515958,0.03579541787167415,,,2580.0,335973755.71636057
+Time relative to the market's biggest price shift,Other experienced wallets,the hour before,0.011468306081657689,0.013819385900383658,,,2580.0,335973755.71636057
+Time relative to the market's biggest price shift,Other experienced wallets,the hour of the shift,0.040230593126533265,0.03390722823548936,,,2580.0,335973755.71636057
+Time relative to the market's biggest price shift,Other experienced wallets,1-6 h after,0.09281986060954735,0.05418273811020144,,,2580.0,335973755.71636057
+Time relative to the market's biggest price shift,Other experienced wallets,7-24 h after,0.09311704820683298,0.05634582860306596,,,2580.0,335973755.71636057
+Time relative to the market's biggest price shift,Other experienced wallets,24+ h after,0.4235860003982831,0.39533767185153823,,,2580.0,335973755.71636057
+Time relative to the market's biggest price shift,All traders,7+ days before,0.196134767838259,,,,,
+Time relative to the market's biggest price shift,All traders,1-7 days before,0.06684641541024774,,,,,
+Time relative to the market's biggest price shift,All traders,7-24 h before,0.026035494518711833,,,,,
+Time relative to the market's biggest price shift,All traders,2-6 h before,0.03414807345038963,,,,,
+Time relative to the market's biggest price shift,All traders,the hour before,0.011891996159655808,,,,,
+Time relative to the market's biggest price shift,All traders,the hour of the shift,0.04864456432153554,,,,,
+Time relative to the market's biggest price shift,All traders,1-6 h after,0.10002754983605894,,,,,
+Time relative to the market's biggest price shift,All traders,7-24 h after,0.10724074377655445,,,,,
+Time relative to the market's biggest price shift,All traders,24+ h after,0.409030394688587,,,,,
+Minutes around the sharpest 10-minute jump,Flagged wallets (less conservative rule),6+ h before,0.2562069325504779,0.3418344423764464,0.29959086507708194,0.3818941942795042,118.0,36031850.62465225
+Minutes around the sharpest 10-minute jump,Flagged wallets (less conservative rule),1-6 h before,0.026916223606256486,0.03385501735524222,0.022159958490005217,0.05196475127041807,118.0,36031850.62465225
+Minutes around the sharpest 10-minute jump,Flagged wallets (less conservative rule),30-60 min before,0.0055439332919913755,0.005230728587943943,0.003418800763914473,0.007214333763570881,118.0,36031850.62465225
+Minutes around the sharpest 10-minute jump,Flagged wallets (less conservative rule),10-30 min before,0.007526415211529343,0.01488916018792193,0.008884623153916596,0.021912699729253023,118.0,36031850.62465225
+Minutes around the sharpest 10-minute jump,Flagged wallets (less conservative rule),the 10 minutes before,0.007988642219086116,0.01974776914852542,0.010370139804224151,0.030071534844235945,118.0,36031850.62465225
+Minutes around the sharpest 10-minute jump,Flagged wallets (less conservative rule),the 10 minutes of the jump,0.02352329443583108,0.03724573674898738,0.02062296263199962,0.05753350415317555,118.0,36031850.62465225
+Minutes around the sharpest 10-minute jump,Flagged wallets (less conservative rule),10-30 min after,0.015758849080413,0.015034303969592025,0.010838656980240573,0.02041951561192959,118.0,36031850.62465225
+Minutes around the sharpest 10-minute jump,Flagged wallets (less conservative rule),30-60 min after,0.01960442078900361,0.01983530683029941,0.010970720414414133,0.030883506357519564,118.0,36031850.62465225
+Minutes around the sharpest 10-minute jump,Flagged wallets (less conservative rule),1-6 h after,0.0891361127799256,0.03910264043008484,0.030199038909850436,0.04891215564748183,118.0,36031850.62465225
+Minutes around the sharpest 10-minute jump,Flagged wallets (less conservative rule),6+ h after,0.5477951760354854,0.4732248943649563,0.43299724187231625,0.5178045444387059,118.0,36031850.62465225
+Minutes around the sharpest 10-minute jump,Other experienced wallets,6+ h before,0.265389078047179,0.3654345440814172,,,2782.0,414513893.5353735
+Minutes around the sharpest 10-minute jump,Other experienced wallets,1-6 h before,0.022790080768891673,0.031114691821703226,,,2782.0,414513893.5353735
+Minutes around the sharpest 10-minute jump,Other experienced wallets,30-60 min before,0.0035031933854916455,0.0043079870363544525,,,2782.0,414513893.5353735
+Minutes around the sharpest 10-minute jump,Other experienced wallets,10-30 min before,0.003912448206838269,0.005173041656470873,,,2782.0,414513893.5353735
+Minutes around the sharpest 10-minute jump,Other experienced wallets,the 10 minutes before,0.0033562317787676973,0.005553546467196322,,,2782.0,414513893.5353735
+Minutes around the sharpest 10-minute jump,Other experienced wallets,the 10 minutes of the jump,0.014295039935502,0.011674389412906005,,,2782.0,414513893.5353735
+Minutes around the sharpest 10-minute jump,Other experienced wallets,10-30 min after,0.010095487477845016,0.007799684637361709,,,2782.0,414513893.5353735
+Minutes around the sharpest 10-minute jump,Other experienced wallets,30-60 min after,0.012546527348425403,0.00998200866498905,,,2782.0,414513893.5353735
+Minutes around the sharpest 10-minute jump,Other experienced wallets,1-6 h after,0.05154870221099682,0.03655445462719533,,,2782.0,414513893.5353735
+Minutes around the sharpest 10-minute jump,Other experienced wallets,6+ h after,0.6125632108400605,0.5224056515944071,,,2782.0,414513893.5353735
+Minutes around the sharpest 10-minute jump,All traders,6+ h before,0.24255753663158863,,,,,
+Minutes around the sharpest 10-minute jump,All traders,1-6 h before,0.027430951193032217,,,,,
+Minutes around the sharpest 10-minute jump,All traders,30-60 min before,0.0037842437809416482,,,,,
+Minutes around the sharpest 10-minute jump,All traders,10-30 min before,0.003943419462842579,,,,,
+Minutes around the sharpest 10-minute jump,All traders,the 10 minutes before,0.0033608399592258303,,,,,
+Minutes around the sharpest 10-minute jump,All traders,the 10 minutes of the jump,0.017279477928952385,,,,,
+Minutes around the sharpest 10-minute jump,All traders,10-30 min after,0.010402717902694689,,,,,
+Minutes around the sharpest 10-minute jump,All traders,30-60 min after,0.01230101258538885,,,,,
+Minutes around the sharpest 10-minute jump,All traders,1-6 h after,0.06247903827715618,,,,,
+Minutes around the sharpest 10-minute jump,All traders,6+ h after,0.6164607622781768,,,,,

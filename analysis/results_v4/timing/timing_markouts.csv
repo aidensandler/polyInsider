@@ -1,0 +1,11 @@
+group,horizon,gain_per_dollar,lo,hi,wallets
+Flagged wallets (less conservative rule),5 min,0.016851246576750877,0.009586220007508403,0.027130202474157566,169
+Flagged wallets (less conservative rule),1 hour,0.020793136068899702,0.006450476089772699,0.035270631965390355,169
+Flagged wallets (less conservative rule),6 hours,0.04498914027060308,0.024342865978317738,0.07007995251459764,169
+Flagged wallets (less conservative rule),24 hours,0.08757415632933371,0.02815757379945347,0.1934626599593491,169
+Flagged wallets (less conservative rule),at resolution,0.07991017834338968,-0.03754430083508984,0.2648302320986858,169
+Other experienced wallets,5 min,0.0019649813035519073,,,8718
+Other experienced wallets,1 hour,0.000993260603315639,,,8718
+Other experienced wallets,6 hours,0.007253055715724316,,,8718
+Other experienced wallets,24 hours,0.007619496200718465,,,8718
+Other experienced wallets,at resolution,-0.04671324250878996,,,8718

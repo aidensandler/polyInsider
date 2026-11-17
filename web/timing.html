@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PolyInsiders | Trader Timing</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+/* Only chart-specific styles; the site owns the page design */
+#plot {
+  display:flex;
+  align-items:flex-end;
+  gap:5px;
+  height:270px;
+  min-width:760px;
+}
+#plot .group {
+  flex:1;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-end;
+}
+#plot .pair {
+  height:225px;
+  width:100%;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  gap:3px;
+}
+#plot .bar {
+  width:40%;
+  min-height:1px;
+  border-radius:4px 4px 0 0;
+}
+#plot .bar.flag {background:#24b99e}
+#plot .bar.other {background:#7c9fc7}
+#plot .tick {
+  font-size:10px;
+  opacity:.75;
+  margin-top:7px;
+}
+.timing-controls {
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+.timing-controls select {
+  color:inherit;
+  background:transparent;
+  border:1px solid #9ba7b5;
+  border-radius:7px;
+  padding:10px;
+  max-width:100%;
+}
+.timing-legend {
+  margin:12px 0;
+  font-size:13px;
+}
+.timing-swatch {
+  display:inline-block;
+  width:11px;
+  height:11px;
+  margin:0 6px 0 14px;
+}
+</style>
+</head>
+<body>
+<div id="ticker"></div>
+<div id="hdr"></div>
+<main>
+
+<div class="pagehead">
+<span class="eyebrow">05 / Trader Timing Analysis</span>
+<h1>When do flagged traders trade?</h1>
+<p class="lead">
+We examine whether historically flagged Polymarket wallets
+concentrate their trading activity at particular times,
+and compare their behavior with other participants
+in the same markets.
+</p>
+</div>
+
+<div class="callout">
+<p><strong>Research question.</strong>
+Do wallets identified by historical trading performance
+exhibit distinctive trading patterns by hour of day,
+day of week, or proximity to recorded information times?
+</p>
+</div>
+
+<h2 class="sectiontitle">Trading activity overview</h2>
+
+<div class="kpis">
+<div class="metric">
+<div class="tag">V4 wallet screen</div>
+<div class="val" id="wallets">—</div>
+<div class="lbl">Flagged wallets matched</div>
+</div>
+<div class="metric">
+<div class="tag">Historical sample</div>
+<div class="val" id="markets">—</div>
+<div class="lbl">Markets analyzed</div>
+</div>
+<div class="metric">
+<div class="tag">Analysis period</div>
+<div class="val" id="cutoff">—</div>
+<div class="lbl">Start date (UTC)</div>
+</div>
+</div>
+
+<div class="panel">
+<div class="hd">
+<h2>Trading-time distributions</h2>
+<span class="sub">Flagged vs. other wallets</span>
+</div>
+<div class="bd">
+<p>
+Compare the distribution of activity across trading
+hours and proximity to information times.
+Both groups are normalized to percentages.
+</p>
+
+<div class="timing-controls">
+<select id="axis">
+<option value="hour">Hour of day (UTC)</option>
+<option value="lead">Time before information</option>
+<option value="dow">Day of week</option>
+</select>
+
+<select id="metric">
+<option value="fills">Fill frequency</option>
+<option value="dollars">Recorded fill-side USD</option>
+</select>
+
+<select id="source">
+<option value="all">All information-time sources</option>
+</select>
+</div>
+
+<div class="timing-legend">
+<span class="timing-swatch" style="background:#24b99e"></span>
+Flagged wallets
+<span class="timing-swatch" style="background:#7c9fc7"></span>
+Other wallets
+</div>
+
+<div style="overflow-x:auto">
+<div id="plot"></div>
+</div>
+
+<p class="small" id="summary"></p>
+</div>
+</div>
+
+<div class="grid">
+<div class="panel">
+<div class="hd">
+<h2>Why timing matters</h2>
+<span class="sub">Research interpretation</span>
+</div>
+<div class="bd prose">
+<p>
+If historically successful wallets trade more heavily
+at particular times, this could reveal differences
+in their trading behavior.
+</p>
+<p>
+Timing patterns may also reflect ordinary market
+activity, liquidity, and event schedules.
+</p>
+</div>
+</div>
+
+<div class="panel">
+<div class="hd">
+<h2>How we measure activity</h2>
+<span class="sub">Historical transactions</span>
+</div>
+<div class="bd prose">
+<p>
+We use timestamped archived trade records and
+Aiden's V4 wallet classifications.
+</p>
+<p>
+The two groups are compared within the same markets.
+The displayed frequencies are normalized within
+each group.
+</p>
+</div>
+</div>
+</div>
+
+<div class="callout warning">
+<p>
+<strong>Important limitation.</strong>
+Historically flagged wallets are not proven insiders.
+Several information times are approximate scheduled
+event times rather than independently verified
+first-public-announcement times.
+These descriptive charts do not establish causation
+or private information.
+</p>
+</div>
+
+
+<!-- WALLET-TIMING-V4 -->
+<h2 class="sectiontitle">
+Individual wallet timing · historical holdout
+</h2>
+<div class="panel">
+<div class="hd">
+<h2>Does a particular wallet trade at a specific hour?</h2>
+<span class="sub">Same-market comparison</span>
+</div>
+<div class="bd">
+<p>Select a historically flagged wallet. Teal bars show
+its trading activity. Blue bars show an activity-weighted
+comparison with other wallets in the same markets.</p>
+
+<div style="display:flex;gap:12px;flex-wrap:wrap;margin:14px 0">
+<label>Wallet
+<select id="wt-wallet"></select></label>
+<label>Period
+<select id="wt-period">
+<option value="discovery">June–August 2026</option>
+<option value="validation" selected>September–November 2026</option>
+<option value="all">All post-cutoff activity</option>
+</select></label>
+<label>Time zone
+<select id="wt-zone">
+<option value="utc">UTC</option>
+<option value="ny">New York (DST-adjusted)</option>
+</select></label>
+<label>Measure
+<select id="wt-metric">
+<option value="fills">Fill frequency</option>
+<option value="usd">Fill-side dollars</option>
+</select></label>
+</div>
+
+<div class="kpis">
+<div class="metric">
+<div class="val" id="wt-fills">—</div>
+<div class="lbl">Wallet fill records</div>
+</div>
+<div class="metric">
+<div class="val" id="wt-markets">—</div>
+<div class="lbl">Comparable markets</div>
+</div>
+<div class="metric">
+<div class="val" id="wt-repeat">—</div>
+<div class="lbl">Later excess at discovery hour (pp)</div>
+</div>
+</div>
+
+<p class="small">Teal = selected wallet · Blue = same-market comparison</p>
+<div style="overflow-x:auto">
+<div id="wt-bars" style="display:flex;align-items:flex-end;
+gap:5px;min-width:730px;height:245px"></div>
+</div>
+<p class="small" id="wt-description"></p>
+</div>
+</div>
+
+<div class="callout warning">
+<p id="wt-overall">Loading wallet-level evaluation.</p>
+<p class="small">The most distinctive UTC hour is identified
+using June–August trading and checked in September–November.
+A wallet must have at least 100 eligible fill records and
+three comparable markets in each period to enter the
+holdout comparison. This is exploratory, not a formal
+significance test. Flagged wallets are not proven insiders,
+and some information timestamps are approximate.</p>
+</div>
+
+</main>
+<div id="ftr"></div>
+
+<script src="assets/app.js"></script>
+<script>layout('timing.html');</script>
+<script>
+(function timingPage(){
+
+
+let DATA;
+const el=id=>document.getElementById(id);
+const fmt=x=>Number(x).toLocaleString('en-US',{maximumFractionDigits:1});
+const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+function draw(){
+ const axis=el('axis').value;
+ const metric=el('metric').value;
+ const source=el('source').value;
+ const labels=axis==='hour'
+   ?Array.from({length:24},(_,i)=>String(i).padStart(2,'0'))
+   :axis==='dow'?days:DATA.lead_buckets;
+ const vals={flagged:labels.map(()=>0),other:labels.map(()=>0)};
+ for(const r of DATA.rows){
+   if(source!=='all'&&r.source!==source)continue;
+   const i=axis==='hour'?r.hour:axis==='dow'?r.dow:labels.indexOf(r.lead);
+   if(i>=0&&i<labels.length)vals[r.group][i]+=r[metric];
+ }
+ const sums={};
+ const pct={};
+ for(const g of ['flagged','other']){
+   sums[g]=vals[g].reduce((a,b)=>a+b,0);
+   pct[g]=vals[g].map(v=>sums[g]?v/sums[g]*100:0);
+ }
+ const max=Math.max(0.01,...pct.flagged,...pct.other)*1.1;
+ el('plot').innerHTML=labels.map((label,i)=>`
+ <div class="group">
+ <div class="pair">
+ <div class="bar flag" style="height:${100*pct.flagged[i]/max}%"
+ title="Flagged: ${pct.flagged[i].toFixed(2)}%"></div>
+ <div class="bar other" style="height:${100*pct.other[i]/max}%"
+ title="Other: ${pct.other[i].toFixed(2)}%"></div>
+ </div><span class="tick">${label}</span></div>`).join('');
+ el('summary').textContent=
+ `Flagged activity: ${fmt(sums.flagged)}; other activity: ${fmt(sums.other)}. Each group sums to 100%.`;
+}
+async function start(){
+ try{
+  const response=await fetch('data/trader_timing.json',{cache:'no-store'});
+  if(!response.ok)throw Error('Data file missing');
+  DATA=await response.json();
+  el('wallets').textContent=fmt(DATA.flagged_wallets);
+  el('markets').textContent=fmt(DATA.matched_markets);
+  el('cutoff').textContent=DATA.split_date;
+  const srcs=[...new Set(DATA.rows.map(r=>r.source))].sort();
+  el('source').innerHTML='<option value="all">All information-time sources</option>'+
+    srcs.map(s=>`<option value="${s}">${s.replace(/_/g,' ')}</option>`).join('');
+  for(const id of ['axis','metric','source'])
+    el(id).addEventListener('change',draw);
+  draw();
+ }catch(e){
+  el('summary').textContent='Could not load analysis: '+e.message;
+ }
+}
+start();
+
+
+})();
+</script>
+<script>
+(()=>{
+const E=id=>document.getElementById(id);
+let D;
+const fmt=x=>Number(x).toLocaleString('en-US');
+
+function draw(){
+ const w=D.wallets.find(x=>x.wallet===E('wt-wallet').value);
+ if(!w)return;
+ const p=w.periods[E('wt-period').value];
+ const t=p.data[E('wt-zone').value][E('wt-metric').value];
+ const mx=Math.max(.1,...t.wallet,...t.comparison)*1.1;
+
+ E('wt-bars').innerHTML=t.wallet.map((v,h)=>`
+ <div style="flex:1;height:100%;display:flex;
+ align-items:center;flex-direction:column;justify-content:flex-end">
+ <div style="width:100%;height:210px;display:flex;gap:2px;
+ align-items:flex-end;justify-content:center">
+ <div title="Wallet ${v.toFixed(2)}%"
+ style="width:40%;height:${100*v/mx}%;background:#24b99e"></div>
+ <div title="Peers ${t.comparison[h].toFixed(2)}%"
+ style="width:40%;height:${100*t.comparison[h]/mx}%;
+ background:#7c9fc7"></div>
+ </div>
+ <span style="font-size:10px">${String(h).padStart(2,'0')}</span>
+ </div>`).join('');
+
+ E('wt-fills').textContent=fmt(p.fills);
+ E('wt-markets').textContent=fmt(p.markets);
+ const lift=w.validation_excess_pp;
+
+ E('wt-repeat').textContent=lift===null
+ ?'Not enough data'
+ :(lift>=0?'+':'')+lift.toFixed(2);
+
+ const peak=t.wallet.indexOf(Math.max(...t.wallet));
+
+ E('wt-description').textContent=p.fills
+ ?`Peak hour: ${String(peak).padStart(2,'0')}:00–${String(peak).padStart(2,'0')}:59
+ ${E('wt-zone').value==='utc'?'UTC':'New York local time'}.
+ Wallet: ${t.wallet[peak].toFixed(2)}%;
+ peers: ${t.comparison[peak].toFixed(2)}%.
+ The holdout value uses the discovery-selected UTC hour,
+ which may differ from this peak.`
+ :'No qualifying observations for this wallet and period.';
+}
+
+async function init(){
+ try{
+  const r=await fetch('data/wallet_timing_v4.json',
+                      {cache:'no-store'});
+  if(!r.ok)throw Error('File missing');
+  D=await r.json();
+
+  E('wt-wallet').innerHTML=D.wallets
+   .filter(w=>w.periods.all.fills>0)
+   .map(w=>`<option value="${w.wallet}">
+   ${w.wallet.slice(0,10)}… ·
+   ${fmt(w.periods.all.fills)} fills</option>`)
+   .join('');
+
+  E('wt-overall').textContent=
+  `Latest V4 screen: ${fmt(D.v4_flagged)} flagged
+  of ${fmt(D.v4_eligible)} eligible wallets.
+  ${fmt(D.evaluated_wallets)} wallets satisfy the
+  two-period sample thresholds; ${fmt(D.positive_retest)}
+  retain positive excess activity at their discovered
+  UTC hour in the later period. This is descriptive
+  evidence, not proof of informed trading.`;
+
+  for(const id of [
+   'wt-wallet','wt-period','wt-zone','wt-metric'
+  ]){
+   E(id).addEventListener('change',draw);
+  }
+  draw();
+ }catch(err){
+  E('wt-overall').textContent=
+   'Wallet timing failed to load: '+err.message;
+  console.error(err);
+ }
+}
+init();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "source": "Aiden full historical archive - timing unverified",
+  "trained_markets": 1120,
+  "test_markets": 644,
+  "train_events": 411,
+  "test_events": 340,
+  "train_last_resolution": "2026-01-23T14:53:40+00:00",
+  "test_first_snapshot": "2026-01-27T19:00:00+00:00",
+  "model": {
+    "n": 644,
+    "brier": 0.1159,
+    "log_loss": 0.3596,
+    "auc": 0.9169
+  },
+  "market_baseline": {
+    "n": 644,
+    "brier": 0.117,
+    "log_loss": 0.3633,
+    "auc": 0.9156
+  },
+  "note": "Held-out events only; no training event resolves after first test snapshot."
+}

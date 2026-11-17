@@ -1,0 +1,23 @@
+{
+  "kind": "pre_resolution_event_yes_forecast",
+  "trained_at": "2026-11-17T01:39:29.814779+00:00",
+  "training_cutoff": "all resolved rows supplied",
+  "source": "Aiden full historical archive - timing unverified",
+  "features": [
+    "logit_price",
+    "net_flow",
+    "skill_flow",
+    "wallet_count",
+    "log_volume"
+  ],
+  "intercept": 0.7736969626927762,
+  "coefficients": {
+    "logit_price": 1.0581226637175967,
+    "net_flow": -0.46573557833055595,
+    "skill_flow": -0.5228763273616033,
+    "wallet_count": 0.164765550203035,
+    "log_volume": -0.14558427524573372
+  },
+  "number_of_training_markets": 2682,
+  "number_of_training_events": 1131
+}

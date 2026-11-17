@@ -1,0 +1,22 @@
+captured_at,event_id,condition_id,question,market_yes_price,predicted_yes,model_source,mode
+2026-11-13T18:50:37.723378+00:00,open_demo_0,open_demo_0,Will the proposed economic measure pass?,0.8086043412533735,0.9061,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION
+2026-11-13T18:50:37.723378+00:00,open_demo_1,open_demo_1,Will inflation fall below the stated threshold?,0.5055563040028452,0.4288,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION
+2026-11-13T18:50:37.723378+00:00,open_demo_2,open_demo_2,Will the next policy meeting change rates?,0.8227543282431138,0.6762,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION
+2026-11-13T18:50:37.723378+00:00,open_demo_3,open_demo_3,Will the election result favor the incumbent?,0.7521821633332334,0.7425,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION
+2026-11-13T18:50:37.723378+00:00,open_demo_4,open_demo_4,Will the scheduled jobs report exceed consensus?,0.23238032734444383,0.1471,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION
+2026-11-13T18:50:37.723378+00:00,open_demo_5,open_demo_5,Will the initiative pass before December?,0.45634096745139574,0.7842,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION
+2026-11-13T18:50:37.723378+00:00,open_demo_6,open_demo_6,Will the next scheduled announcement be positive?,0.8082556057250042,0.8507,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION
+2026-11-16T19:32:25.840547+00:00,open_demo_0,open_demo_0,Will the proposed economic measure pass?,0.8086043412533735,0.9061,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION,,trained wallet model,
+2026-11-16T19:32:25.840547+00:00,open_demo_1,open_demo_1,Will inflation fall below the stated threshold?,0.5055563040028452,0.4288,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION,,trained wallet model,
+2026-11-16T19:32:25.840547+00:00,open_demo_2,open_demo_2,Will the next policy meeting change rates?,0.8227543282431138,0.6762,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION,,trained wallet model,
+2026-11-16T19:32:25.840547+00:00,open_demo_3,open_demo_3,Will the election result favor the incumbent?,0.7521821633332334,0.7425,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION,,trained wallet model,
+2026-11-16T19:32:25.840547+00:00,open_demo_4,open_demo_4,Will the scheduled jobs report exceed consensus?,0.23238032734444383,0.1471,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION,,trained wallet model,
+2026-11-16T19:32:25.840547+00:00,open_demo_5,open_demo_5,Will the initiative pass before December?,0.45634096745139574,0.7842,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION,,trained wallet model,
+2026-11-16T19:32:25.840547+00:00,open_demo_6,open_demo_6,Will the next scheduled announcement be positive?,0.8082556057250042,0.8507,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION,,trained wallet model,
+2026-11-16T19:34:22.170129+00:00,open_demo_0,open_demo_0,Will the proposed economic measure pass?,0.8086043412533735,0.9061,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION,,trained wallet model,
+2026-11-16T19:34:22.170129+00:00,open_demo_1,open_demo_1,Will inflation fall below the stated threshold?,0.5055563040028452,0.4288,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION,,trained wallet model,
+2026-11-16T19:34:22.170129+00:00,open_demo_2,open_demo_2,Will the next policy meeting change rates?,0.8227543282431138,0.6762,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION,,trained wallet model,
+2026-11-16T19:34:22.170129+00:00,open_demo_3,open_demo_3,Will the election result favor the incumbent?,0.7521821633332334,0.7425,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION,,trained wallet model,
+2026-11-16T19:34:22.170129+00:00,open_demo_4,open_demo_4,Will the scheduled jobs report exceed consensus?,0.23238032734444383,0.1471,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION,,trained wallet model,
+2026-11-16T19:34:22.170129+00:00,open_demo_5,open_demo_5,Will the initiative pass before December?,0.45634096745139574,0.7842,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION,,trained wallet model,
+2026-11-16T19:34:22.170129+00:00,open_demo_6,open_demo_6,Will the next scheduled announcement be positive?,0.8082556057250042,0.8507,SYNTHETIC DEMONSTRATION,SYNTHETIC DEMO — UNRESOLVED SIMULATION,,trained wallet model,

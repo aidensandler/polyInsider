@@ -1,0 +1,12 @@
+pandas>=2.2
+numpy
+requests
+pyarrow
+scikit-learn>=1.4
+scipy
+matplotlib
+pycryptodome
+pytest
+websockets
+notebook
+ipykernel

@@ -1,0 +1,156 @@
+{
+  "provenance": "Numbers transcribed from user-provided terminal output on 2026-11-16, not recalculated in this package.",
+  "data": {
+    "original_fills": 15581978,
+    "original_markets": 1610,
+    "original_wallets": 548066,
+    "metadata_eligible_markets": 1586,
+    "fills_scanned": 15581978,
+    "fills_lookback": 977387,
+    "prepared_rows": 164129,
+    "prepared_markets": 1175,
+    "prepared_events": 491,
+    "prepared_wallets": 82586,
+    "snapshot_before_recorded_resolution": 1175,
+    "median_hours_before_recorded_resolution": 54.6,
+    "extreme_price_markets": 603,
+    "timing_proxy_sources": {
+      "scheduled_end": 1462,
+      "fomc_statement": 69,
+      "event_start": 55
+    }
+  },
+  "market_model": {
+    "train_markets": 97,
+    "train_events": 31,
+    "test_markets": 303,
+    "test_events": 148,
+    "full_live_model_markets": 1175,
+    "full_live_model_events": 491,
+    "model": {
+      "auc": 0.9008,
+      "brier": 0.1276,
+      "log_loss": 0.4065
+    },
+    "raw_price": {
+      "auc": 0.9015,
+      "brier": 0.1244,
+      "log_loss": 0.3908
+    }
+  },
+  "wallet_model": {
+    "test_wallets": 504,
+    "test_auc": 0.5109,
+    "test_brier": 0.2519,
+    "base_rate_brier": 0.251,
+    "test_positive_share": 0.5159,
+    "train_wallet_windows": 973
+  },
+  "ablation": {
+    "with_skill": {
+      "auc": 0.9008,
+      "brier": 0.1276,
+      "log_loss": 0.4065
+    },
+    "without_skill": {
+      "auc": 0.9009,
+      "brier": 0.1275,
+      "log_loss": 0.4063
+    },
+    "price_only_recalibrated": {
+      "auc": 0.9015,
+      "brier": 0.1262,
+      "log_loss": 0.4031
+    },
+    "raw_market_price": {
+      "auc": 0.9015,
+      "brier": 0.1244,
+      "log_loss": 0.3908
+    },
+    "delta_brier": 2.6e-05,
+    "delta_auc": -9.2e-05,
+    "ci95_delta_brier": [
+      -5.7e-05,
+      0.000119
+    ],
+    "ci95_delta_auc": [
+      -0.000533,
+      0.000267
+    ],
+    "test_markets_nonzero_skill_flow": 300
+  },
+  "live": {
+    "capture_first_utc": "2026-11-16T22:14:16.398996+00:00",
+    "capture_last_utc": "2026-11-16T22:42:22.705298+00:00",
+    "records": 144,
+    "unique_markets": 8,
+    "before_scheduled_end_records": 144,
+    "after_scheduled_end_records": 0,
+    "nonzero_skill_flow_records": 24,
+    "api_errors_in_last_snapshot": 0,
+    "model_source": "Aiden historical fills - timing unverified"
+  },
+  "walk_forward": {
+    "status": "COMPLETED ON REAL HISTORICAL FEATURES (team terminal output, 2026-11-16)",
+    "source": "Numbers transcribed from user terminal output; not independently rerun in this package.",
+    "features_file": "data/run/asof_features.csv",
+    "prepared_markets": 1175,
+    "prepared_events": 491,
+    "evaluated_markets": 1127,
+    "evaluated_events": 480,
+    "months": 10,
+    "not_evaluated_markets": 48,
+    "models": {
+      "with_skill": {
+        "brier": 0.0972,
+        "auc": 0.93313,
+        "log_loss": 0.3046
+      },
+      "without_skill": {
+        "brier": 0.0972,
+        "auc": 0.933187,
+        "log_loss": 0.3043
+      },
+      "price_only_recalibrated": {
+        "brier": 0.0972,
+        "auc": 0.933072,
+        "log_loss": 0.3039
+      },
+      "raw_market_price": {
+        "brier": 0.0969,
+        "auc": 0.933949,
+        "log_loss": 0.3034
+      }
+    },
+    "delta_brier_with_minus_without": 6.21e-05,
+    "delta_auc_with_minus_without": -5.7e-05,
+    "event_bootstrap_95ci_delta_brier": [
+      -0.0001228,
+      0.0002422
+    ],
+    "event_bootstrap_95ci_delta_auc": [
+      -0.000345,
+      0.000242
+    ],
+    "monthly_test_markets": {
+      "2025-12": 14,
+      "2026-01": 127,
+      "2026-02": 100,
+      "2026-03": 101,
+      "2026-04": 206,
+      "2026-05": 109,
+      "2026-06": 187,
+      "2026-07": 55,
+      "2026-08": 106,
+      "2026-09": 122
+    },
+    "interpretation": "Wallet skill provides no detectable incremental predictive improvement; baseline market prices slightly outperform tested models; public-information timing still requires independent audit."
+  },
+  "caveats": [
+    "Scheduled end date is not an independently verified public information release time.",
+    "Performance on historical markets is not evidence of private information.",
+    "The live feed is not proof of prospective predictive value until saved forecasts can be scored against later verified resolutions.",
+    "Market and wallet model features must be audited for pre-snapshot availability; external timestamps are not notarized.",
+    "The shared full ZIP does not include the real Mac-trained models, the original 15.6 million fills, or live data."
+  ]
+}

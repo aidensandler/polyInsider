@@ -1,0 +1,94 @@
+{
+ "first_10pct_of_life": {
+  "flagged_wallet_equal": 0.05530648898826748,
+  "other_wallet_equal": 0.0367916229808497,
+  "flagged_pooled": 0.01334462316945523,
+  "other_pooled": 0.011231522785922448,
+  "all_traders_pooled": 0.007909199672338683
+ },
+ "last_10pct_of_life": {
+  "flagged_wallet_equal": 0.33588009052124695,
+  "other_wallet_equal": 0.3649185882140192,
+  "flagged_pooled": 0.6142400236954794,
+  "other_pooled": 0.5794001324846764,
+  "all_traders_pooled": 0.5143400642045614
+ },
+ "last_24h_before_resolution": {
+  "flagged_wallet_equal": 0.13957499651663996,
+  "other_wallet_equal": 0.1227602064505776,
+  "flagged_pooled": 0.2453872496516975,
+  "other_pooled": 0.20900355114372487,
+  "all_traders_pooled": 0.19790578130672096
+ },
+ "more_than_30d_before_resolution": {
+  "flagged_wallet_equal": 0.4998550102028294,
+  "other_wallet_equal": 0.4639461023390344,
+  "flagged_pooled": 0.21813359721154166,
+  "other_pooled": 0.2449524242663094,
+  "all_traders_pooled": 0.3665140253615669
+ },
+ "within_24h_before_shift": {
+  "flagged_wallet_equal": 0.09232623258650535,
+  "other_wallet_equal": 0.07605368318844069,
+  "flagged_pooled": 0.07530974436596105,
+  "other_pooled": 0.06602504956450432,
+  "all_traders_pooled": 0.07207556412875726
+ },
+ "hour_before_or_of_shift": {
+  "flagged_wallet_equal": 0.10869399669218763,
+  "other_wallet_equal": 0.04772661413587302,
+  "flagged_pooled": 0.08881735538432946,
+  "other_pooled": 0.05169889920819096,
+  "all_traders_pooled": 0.060536560481191354
+ },
+ "more_than_24h_before_shift": {
+  "flagged_wallet_equal": 0.3393602168967641,
+  "other_wallet_equal": 0.3841728500112641,
+  "flagged_pooled": 0.2370035675495163,
+  "other_pooled": 0.284221448094299,
+  "all_traders_pooled": 0.2629811832485067
+ },
+ "after_shift": {
+  "flagged_wallet_equal": 0.49453900301708864,
+  "other_wallet_equal": 0.5058662385648056,
+  "flagged_pooled": 0.6172965247016254,
+  "other_pooled": 0.6095229092146635,
+  "all_traders_pooled": 0.6162986883012004
+ },
+ "ten_minutes_before_jump": {
+  "flagged_wallet_equal": 0.01974776914852542,
+  "other_wallet_equal": 0.005553546467196322,
+  "flagged_pooled": 0.007988642219086116,
+  "other_pooled": 0.0033562317787676973,
+  "all_traders_pooled": 0.0033608399592258303
+ },
+ "hour_before_jump": {
+  "flagged_wallet_equal": 0.03986765792439129,
+  "other_wallet_equal": 0.015034575160021647,
+  "flagged_pooled": 0.021058990722606835,
+  "other_pooled": 0.010771873371097612,
+  "all_traders_pooled": 0.011088503203010056
+ },
+ "ten_minutes_of_jump": {
+  "flagged_wallet_equal": 0.03724573674898738,
+  "other_wallet_equal": 0.011674389412906005,
+  "flagged_pooled": 0.02352329443583108,
+  "other_pooled": 0.014295039935502,
+  "all_traders_pooled": 0.017279477928952385
+ },
+ "hour_after_jump": {
+  "flagged_wallet_equal": 0.03486961079989143,
+  "other_wallet_equal": 0.01778169330235076,
+  "flagged_pooled": 0.03536326986941661,
+  "other_pooled": 0.02264201482627042,
+  "all_traders_pooled": 0.022703730488083537
+ },
+ "wallets": {
+  "Experienced (10+ events before the cut-off)": 17254,
+  "Flagged (less conservative rule)": 207,
+  "Flagged (original rule)": 23
+ },
+ "markets_with_shift": 528,
+ "markets": 1309,
+ "markets_with_sharp_jump": 631
+}

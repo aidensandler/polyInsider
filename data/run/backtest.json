@@ -1,0 +1,22 @@
+{
+  "source": "Aiden historical fills - timing unverified",
+  "trained_markets": 97,
+  "test_markets": 303,
+  "train_events": 31,
+  "test_events": 148,
+  "train_last_resolution": "2026-01-23T14:53:40+00:00",
+  "test_first_snapshot": "2026-01-27T19:00:00+00:00",
+  "model": {
+    "n": 303,
+    "brier": 0.1276,
+    "log_loss": 0.4065,
+    "auc": 0.9008
+  },
+  "market_baseline": {
+    "n": 303,
+    "brier": 0.1244,
+    "log_loss": 0.3908,
+    "auc": 0.9015
+  },
+  "note": "Held-out events only; no training event resolves after first test snapshot."
+}

@@ -1,0 +1,19 @@
+POLYINSIDERS — UPDATED ECE 473 PACKAGE (NOVEMBER 16, 2026)
+Aiden Sandler & Emilly Antero
+
+1. Open README.md: it explains the REAL versus SYNTHETIC status and commands.
+2. In Terminal / VS Code in this folder:
+     python3 -m venv .venv
+     source .venv/bin/activate
+     python -m pip install -r requirements.txt
+     python -m pytest -q             (16 automated tests)
+     python -m polyinsider.cli demo   (clearly labeled synthetic examples)
+     python -m polyinsider.cli serve --port 8000
+3. Open http://127.0.0.1:8000 and click Live tracker.
+4. See docs/DEEP_EXPLANATION.md and the PDF report for methods.
+5. See slides/PolyInsiders_ECE473_Updated_Presentation.pptx for the editable deck.
+
+IMPORTANT: REAL historical archive and genuine API polling were unavailable in
+this environment. Do not claim the synthetic model was trained on actual wallets.
+To run with real data, follow README.md steps: verified metadata, large-CSV
+import, train BOTH models, serve --live, log, evaluate after resolution.

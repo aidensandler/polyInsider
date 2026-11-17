@@ -1,0 +1,15 @@
+group,bucket,dollar_share,dollars,wallets
+Flagged wallets (less conservative rule),24+ h before,0.805840054387287,4514971.204573814,88
+Flagged wallets (less conservative rule),6-24 h before,0.023337965104493378,130758.25636422774,88
+Flagged wallets (less conservative rule),1-6 h before,0.06244547380482553,349870.3179989306,88
+Flagged wallets (less conservative rule),15-60 min before,0.015090545927618675,84549.50824739225,88
+Flagged wallets (less conservative rule),0-15 min before,0.008909780741281886,49919.83615972102,88
+Flagged wallets (less conservative rule),"after, 0-1 h",0.05952174523665622,333489.2133077383,88
+Flagged wallets (less conservative rule),"after, 1+ h",0.024854434797837267,139254.7526115661,88
+Other experienced wallets,24+ h before,0.826357679746017,152671466.78320584,4283
+Other experienced wallets,6-24 h before,0.07998856516429953,14778069.919155382,4283
+Other experienced wallets,1-6 h before,0.05552623175030422,10258598.006699312,4283
+Other experienced wallets,15-60 min before,0.01272263937669003,2350536.6533170417,4283
+Other experienced wallets,0-15 min before,0.009512313921487483,1757421.7006637584,4283
+Other experienced wallets,"after, 0-1 h",0.0070811680202094215,1308261.9484046889,4283
+Other experienced wallets,"after, 1+ h",0.008811402020992275,1627926.6278191553,4283

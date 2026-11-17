@@ -1,0 +1,212 @@
+{
+ "2025-07-01_2025-10-01": {
+  "cutoff": "2025-07-01_2025-10-01",
+  "train_trades": 1655448,
+  "test_trades": 392661,
+  "All features": {
+   "rounds": 100,
+   "threshold": 0.30287253129903025,
+   "alert_rate_test": 0.0020755817358994147,
+   "alerts_deduped": 173
+  },
+  "Price only": {
+   "rounds": 40,
+   "threshold": 0.19254341968205987,
+   "alert_rate_test": 0.012081668411174015,
+   "alerts_deduped": 786
+  },
+  "Crowd flow (no wallet skill)": {
+   "rounds": 100,
+   "threshold": 0.38925787769360576,
+   "alert_rate_test": 0.000407476169010928,
+   "alerts_deduped": 45
+  },
+  "Trade + agreement (no own history)": {
+   "rounds": 100,
+   "threshold": 0.46628641022417794,
+   "alert_rate_test": 0.012020546985822377,
+   "alerts_deduped": 612
+  },
+  "All + agreement": {
+   "rounds": 100,
+   "threshold": 0.45407535743800403,
+   "alert_rate_test": 0.012196271083708339,
+   "alerts_deduped": 559
+  },
+  "All + agreement + flow": {
+   "rounds": 100,
+   "threshold": 0.46248819217660897,
+   "alert_rate_test": 0.01222428507032784,
+   "alerts_deduped": 599
+  },
+  "flagged_wallets": 8
+ },
+ "2025-10-01_2026-01-01": {
+  "cutoff": "2025-10-01_2026-01-01",
+  "train_trades": 2179432,
+  "test_trades": 1197898,
+  "All features": {
+   "rounds": 100,
+   "threshold": 0.2163736861672244,
+   "alert_rate_test": 0.009998347104678361,
+   "alerts_deduped": 1672
+  },
+  "Price only": {
+   "rounds": 40,
+   "threshold": 0.2038995903032308,
+   "alert_rate_test": 0.0,
+   "alerts_deduped": 0
+  },
+  "Crowd flow (no wallet skill)": {
+   "rounds": 100,
+   "threshold": 0.2028127423103495,
+   "alert_rate_test": 0.03032895956083072,
+   "alerts_deduped": 4135
+  },
+  "Trade + agreement (no own history)": {
+   "rounds": 100,
+   "threshold": 0.5101272713112724,
+   "alert_rate_test": 0.000865683054817689,
+   "alerts_deduped": 238
+  },
+  "All + agreement": {
+   "rounds": 100,
+   "threshold": 0.48463680552404387,
+   "alert_rate_test": 0.0012872548413971807,
+   "alerts_deduped": 327
+  },
+  "All + agreement + flow": {
+   "rounds": 100,
+   "threshold": 0.4863738240987448,
+   "alert_rate_test": 0.00015193280229201485,
+   "alerts_deduped": 69
+  },
+  "flagged_wallets": 5
+ },
+ "2026-01-01_2026-04-01": {
+  "cutoff": "2026-01-01_2026-04-01",
+  "train_trades": 3887539,
+  "test_trades": 921465,
+  "All features": {
+   "rounds": 100,
+   "threshold": 0.20598116401575825,
+   "alert_rate_test": 5.968756273976765e-05,
+   "alerts_deduped": 23
+  },
+  "Price only": {
+   "rounds": 100,
+   "threshold": 0.1356523813561228,
+   "alert_rate_test": 0.0,
+   "alerts_deduped": 0
+  },
+  "Crowd flow (no wallet skill)": {
+   "rounds": 100,
+   "threshold": 0.24479613849989681,
+   "alert_rate_test": 2.9301167163158667e-05,
+   "alerts_deduped": 15
+  },
+  "Trade + agreement (no own history)": {
+   "rounds": 100,
+   "threshold": 0.28399232072591013,
+   "alert_rate_test": 0.0,
+   "alerts_deduped": 0
+  },
+  "All + agreement": {
+   "rounds": 100,
+   "threshold": 0.2880149777414573,
+   "alert_rate_test": 0.0,
+   "alerts_deduped": 0
+  },
+  "All + agreement + flow": {
+   "rounds": 100,
+   "threshold": 0.2795062647427128,
+   "alert_rate_test": 4.775005019181412e-05,
+   "alerts_deduped": 16
+  },
+  "flagged_wallets": 6
+ },
+ "2026-04-01_2026-07-01": {
+  "cutoff": "2026-04-01_2026-07-01",
+  "train_trades": 5090543,
+  "test_trades": 1521376,
+  "All features": {
+   "rounds": 100,
+   "threshold": 0.09067891784456028,
+   "alert_rate_test": 0.000561991250026292,
+   "alerts_deduped": 305
+  },
+  "Price only": {
+   "rounds": 40,
+   "threshold": 0.06942840485042807,
+   "alert_rate_test": 0.0,
+   "alerts_deduped": 0
+  },
+  "Crowd flow (no wallet skill)": {
+   "rounds": 40,
+   "threshold": 0.06807359093206236,
+   "alert_rate_test": 0.01530456639252887,
+   "alerts_deduped": 4142
+  },
+  "Trade + agreement (no own history)": {
+   "rounds": 100,
+   "threshold": 0.1033313095965064,
+   "alert_rate_test": 0.03292282775592621,
+   "alerts_deduped": 6867
+  },
+  "All + agreement": {
+   "rounds": 100,
+   "threshold": 0.09979735396789728,
+   "alert_rate_test": 0.030391566581831186,
+   "alerts_deduped": 6235
+  },
+  "All + agreement + flow": {
+   "rounds": 100,
+   "threshold": 0.10084727325042687,
+   "alert_rate_test": 0.03141498222661591,
+   "alerts_deduped": 6431
+  },
+  "flagged_wallets": 11
+ },
+ "2026-07-01_2026-10-01": {
+  "cutoff": "2026-07-01_2026-10-01",
+  "train_trades": 7327252,
+  "test_trades": 840738,
+  "All features": {
+   "rounds": 40,
+   "threshold": 0.035596343467680744,
+   "alert_rate_test": 0.010892810840000095,
+   "alerts_deduped": 2232
+  },
+  "Price only": {
+   "rounds": 40,
+   "threshold": 0.04082463566918458,
+   "alert_rate_test": 0.0,
+   "alerts_deduped": 0
+  },
+  "Crowd flow (no wallet skill)": {
+   "rounds": 40,
+   "threshold": 0.060999080829685255,
+   "alert_rate_test": 0.045903717924014376,
+   "alerts_deduped": 5465
+  },
+  "Trade + agreement (no own history)": {
+   "rounds": 40,
+   "threshold": 0.13430022760661717,
+   "alert_rate_test": 0.037942854967897253,
+   "alerts_deduped": 4990
+  },
+  "All + agreement": {
+   "rounds": 40,
+   "threshold": 0.1336904977025821,
+   "alert_rate_test": 0.03644060337465417,
+   "alerts_deduped": 4807
+  },
+  "All + agreement + flow": {
+   "rounds": 40,
+   "threshold": 0.13315971770536733,
+   "alert_rate_test": 0.03543910231249212,
+   "alerts_deduped": 4918
+  },
+  "flagged_wallets": 25
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "provenance":"Prior PolyInsiders team project summary and handoff (November 11, 2026). Not independently recalculated in this package.",
+ "reported_at":"November 11, 2026",
+ "bottom_line":"Past performance ranks wallets more consistently on scheduled events than on a crypto up/down comparison, but the top group performs similarly on both. The evidence is consistent with persistent skill, not proof of private information.",
+ "key_numbers":[
+  {"value":"1,610","label":"Scheduled-event markets/outcomes in original historical archive"},
+  {"value":"15.6M","label":"Executed fills in original team archive"},
+  {"value":"19 / 4,009","label":"Wallets flagged in prior recalibrated out-of-sample event study"},
+  {"value":"0.24","label":"Reported event-sample rank correlation (95% CI 0.20–0.28)"}
+ ],
+ "metrics":[
+  {"name":"Rank correlation, early vs later","events":"0.24 (CI 0.20–0.28)","placebo":"0.07 (CI 0.02–0.12)","interpretation":"Strong(er) ranking persistence in scheduled events"},
+  {"name":"AUC of earlier wallet score","events":"0.65","placebo":"0.55","interpretation":"Higher discrimination on main sample"},
+  {"name":"Flagged using recalibrated rule","events":"19 of 4,009","placebo":"About 0.5%","interpretation":"Small flagged group; not directly comparable without base rates"},
+  {"name":"Share beating prices later","events":"95% of flagged / 57% of others","placebo":"Not provided","interpretation":"Small number of flagged wallets"},
+  {"name":"Sensitivity: positive matched difference","events":"36 / 36 settings","placebo":"34 / 36 settings","interpretation":"Positive point estimates do not guarantee statistical significance"},
+  {"name":"Sensitivity: 95% CI above zero","events":"35 / 36 settings","placebo":"5 / 36 settings","interpretation":"Event effect more robust to tested settings"},
+  {"name":"Top-scoring group later edge","events":"+0.13","placebo":"+0.13","interpretation":"Cannot distinguish top wallets' apparent skill from private information"}
+ ],
+ "caveats":[
+  "Numbers were reported by the previous team pipeline and are not a new independent replication.",
+  "The main and crypto samples differ in events and trading populations; the placebo is not a clean counterfactual for private information.",
+  "The small flagged group makes exact comparisons uncertain; grouping related outcomes by event is necessary.",
+  "Original trades and a complete position/conversion ledger were not supplied with the uploaded HTML; fees and negative-risk conversions may affect PnL.",
+  "Trade timing, sample selection, volume matching, and statistical confidence intervals should be audited using the original archive.",
+  "The new probability forecast is an additional research prototype and has not yet been validated on the team's original historical event snapshots."
+ ]
+}

@@ -1,0 +1,43 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PolyInsiders | Findings</title><link rel="stylesheet" href="assets/style.css"></head><body><div id="ticker"></div><div id="hdr"></div><main>
+
+<!-- LATEST-V4-RESULTS -->
+<h2 class="sectiontitle">Latest V4 findings · expanded archive</h2>
+<div class="kpis">
+<div class="metric">
+<div class="tag">V4 wallet screen</div>
+<div class="val">207</div>
+<div class="lbl">Flagged of 17,254 eligible wallets</div>
+</div>
+<div class="metric">
+<div class="tag">Evaluated later</div>
+<div class="val">170</div>
+<div class="lbl">Flagged wallets with subsequent data</div>
+</div>
+<div class="metric">
+<div class="tag">Expanded training</div>
+<div class="val">2,682</div>
+<div class="lbl">Prepared markets</div>
+</div>
+<div class="metric">
+<div class="tag">Monthly backtest</div>
+<div class="val">22</div>
+<div class="lbl">Walk-forward months</div>
+</div>
+</div>
+<p class="small">
+The earlier 19-wallet result belongs to a different historical
+screen, not this V4 analysis. Wallet flags are not proof of
+nonpublic information.
+<a href="timing.html">Explore individual wallet timing →</a>
+</p>
+<!-- END LATEST-V4-RESULTS -->
+
+<div class="pagehead"><span class="eyebrow">02 / The evidence</span><h1>Historical findings</h1><p class="lead">Previously reported from the team’s November 2026 analysis. Wallets are ranked using events resolved before June 1, then checked against subsequent events. These are archived research claims, not results newly computed by this delivery.</p></div>
+<div class="callout"><p><strong>Bottom line.</strong> <span id="history-summary">Previous results showed persistent differences in wallet performance; this is not proof of private information.</span></p></div>
+<div class="toc"><a href="#numbers">Key numbers</a><a href="#figures">Figures</a><a href="#table">Table</a><a href="#caveats">Limitations</a></div>
+<h2 id="numbers" class="sectiontitle">Key numbers</h2><p class="small">Reported snapshot · <span id="reported-at"></span></p><div id="hist-kpis" class="kpis"></div>
+<h2 id="figures" class="sectiontitle" style="margin:30px 0 14px">How predictive were past scores?</h2><div class="grid"><div class="panel"><div class="hd"><h2>Figure 1. Rank persistence</h2><span class="sub">Earlier vs later</span></div><div class="bd"><div id="rank-chart"></div><p class="small">Higher rank correlation means the earlier ordering better predicts later relative performance.</p></div></div><div class="panel"><div class="hd"><h2>Figure 2. Predictive AUC</h2><span class="sub">Higher is better</span></div><div class="bd"><div id="auc-chart"></div><p class="small">AUC measures how often a positively performing wallet is ranked ahead of a negatively performing wallet.</p></div></div></div>
+<section class="panel" id="table"><div class="hd"><h2>Table 1. Main reported results</h2><span class="sub">Retrospective analysis</span></div><div id="result-table"></div></section>
+<section class="panel" id="caveats"><div class="hd"><h2>What the findings do not prove</h2></div><div class="bd prose" id="scope-notes"></div></section>
+<div class="callout warning"><p><strong>Source status.</strong> The results on this page are reconstructed from earlier team summaries, rather than recalculated from the full 15.6-million-fill archive in this session. The original analysis files and its plots should be imported and independently re-run before treating them as final reproducible estimates.</p></div>
+</main><div id="ftr"></div><script src="assets/app.js"></script><script>layout('findings.html');renderHistory();</script></body></html>

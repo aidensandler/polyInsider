@@ -1,0 +1,705 @@
+{
+  "generated_at": "2026-11-17T01:42:44.371562+00:00",
+  "method": "Monthly expanding-window evaluation: train only on fully resolved prior events; test markets snapshotted in next calendar month; refit each month; event-disjoint folds.",
+  "prepared_markets": 2682,
+  "prepared_events": 1131,
+  "evaluated_markets": 2645,
+  "evaluated_events": 1117,
+  "unevaluated_markets": 37,
+  "n_monthly_folds": 22,
+  "metrics": {
+    "with_skill": {
+      "n": 2645,
+      "brier": 0.095509,
+      "log_loss": 0.30175,
+      "auc": 0.935207
+    },
+    "without_skill": {
+      "n": 2645,
+      "brier": 0.095557,
+      "log_loss": 0.301856,
+      "auc": 0.935137
+    },
+    "price_only_recalibrated": {
+      "n": 2645,
+      "brier": 0.095732,
+      "log_loss": 0.302606,
+      "auc": 0.934867
+    },
+    "raw_market_price": {
+      "n": 2645,
+      "brier": 0.095733,
+      "log_loss": 0.302051,
+      "auc": 0.935822
+    }
+  },
+  "brier_with_minus_without": -4.83e-05,
+  "auc_with_minus_without": 7e-05,
+  "bootstrap": {
+    "resamples": 500,
+    "event_clusters": 1117,
+    "brier_with_minus_without_ci95": [
+      -0.0001623,
+      5.88e-05
+    ],
+    "brier_with_minus_raw_market_ci95": [
+      -0.001368,
+      0.0008051
+    ],
+    "auc_with_minus_without_ci95": [
+      -8.68e-05,
+      0.0002242
+    ],
+    "caveat": "Resamples evaluation events, conditions on fitted models; not an independent future validation."
+  },
+  "folds": [
+    {
+      "window": "2025-02",
+      "train_events": 12,
+      "train_markets": 32,
+      "test_events": 17,
+      "test_markets": 41,
+      "last_train_resolution": "2025-01-30T16:53:23+00:00",
+      "first_test_snapshot": "2025-02-01T03:02:39+00:00",
+      "with_skill": {
+        "n": 41,
+        "brier": 0.069323,
+        "log_loss": 0.214941,
+        "auc": 0.964286
+      },
+      "without_skill": {
+        "n": 41,
+        "brier": 0.069323,
+        "log_loss": 0.21494,
+        "auc": 0.964286
+      },
+      "raw_market_price": {
+        "n": 41,
+        "brier": 0.065041,
+        "log_loss": 0.189412,
+        "auc": 0.976648
+      }
+    },
+    {
+      "window": "2025-03",
+      "train_events": 22,
+      "train_markets": 53,
+      "test_events": 19,
+      "test_markets": 51,
+      "last_train_resolution": "2025-02-24T14:12:34+00:00",
+      "first_test_snapshot": "2025-03-05T12:00:00+00:00",
+      "with_skill": {
+        "n": 51,
+        "brier": 0.109855,
+        "log_loss": 0.3571,
+        "auc": 0.922559
+      },
+      "without_skill": {
+        "n": 51,
+        "brier": 0.109856,
+        "log_loss": 0.357101,
+        "auc": 0.922559
+      },
+      "raw_market_price": {
+        "n": 51,
+        "brier": 0.11142,
+        "log_loss": 0.379976,
+        "auc": 0.919192
+      }
+    },
+    {
+      "window": "2025-04",
+      "train_events": 43,
+      "train_markets": 100,
+      "test_events": 50,
+      "test_markets": 114,
+      "last_train_resolution": "2025-03-31T21:56:38+00:00",
+      "first_test_snapshot": "2025-04-01T12:00:00+00:00",
+      "with_skill": {
+        "n": 114,
+        "brier": 0.08609,
+        "log_loss": 0.278052,
+        "auc": 0.946648
+      },
+      "without_skill": {
+        "n": 114,
+        "brier": 0.086096,
+        "log_loss": 0.278072,
+        "auc": 0.946648
+      },
+      "raw_market_price": {
+        "n": 114,
+        "brier": 0.084615,
+        "log_loss": 0.268549,
+        "auc": 0.947174
+      }
+    },
+    {
+      "window": "2025-05",
+      "train_events": 87,
+      "train_markets": 203,
+      "test_events": 43,
+      "test_markets": 136,
+      "last_train_resolution": "2025-04-30T19:37:50+00:00",
+      "first_test_snapshot": "2025-05-01T12:00:00+00:00",
+      "with_skill": {
+        "n": 136,
+        "brier": 0.076184,
+        "log_loss": 0.2344,
+        "auc": 0.955017
+      },
+      "without_skill": {
+        "n": 136,
+        "brier": 0.076167,
+        "log_loss": 0.234338,
+        "auc": 0.955017
+      },
+      "raw_market_price": {
+        "n": 136,
+        "brier": 0.077422,
+        "log_loss": 0.231518,
+        "auc": 0.955306
+      }
+    },
+    {
+      "window": "2025-06",
+      "train_events": 131,
+      "train_markets": 335,
+      "test_events": 38,
+      "test_markets": 136,
+      "last_train_resolution": "2025-05-22T21:09:38+00:00",
+      "first_test_snapshot": "2025-06-01T12:00:00+00:00",
+      "with_skill": {
+        "n": 136,
+        "brier": 0.084355,
+        "log_loss": 0.270914,
+        "auc": 0.927624
+      },
+      "without_skill": {
+        "n": 136,
+        "brier": 0.084359,
+        "log_loss": 0.270887,
+        "auc": 0.927624
+      },
+      "raw_market_price": {
+        "n": 136,
+        "brier": 0.082848,
+        "log_loss": 0.267374,
+        "auc": 0.934544
+      }
+    },
+    {
+      "window": "2025-07",
+      "train_events": 171,
+      "train_markets": 483,
+      "test_events": 19,
+      "test_markets": 35,
+      "last_train_resolution": "2025-06-30T23:29:34+00:00",
+      "first_test_snapshot": "2025-07-07T12:00:00+00:00",
+      "with_skill": {
+        "n": 35,
+        "brier": 0.074459,
+        "log_loss": 0.213371,
+        "auc": 0.98
+      },
+      "without_skill": {
+        "n": 35,
+        "brier": 0.074213,
+        "log_loss": 0.212721,
+        "auc": 0.98
+      },
+      "raw_market_price": {
+        "n": 35,
+        "brier": 0.078816,
+        "log_loss": 0.224356,
+        "auc": 0.98
+      }
+    },
+    {
+      "window": "2025-08",
+      "train_events": 196,
+      "train_markets": 546,
+      "test_events": 16,
+      "test_markets": 36,
+      "last_train_resolution": "2025-07-31T23:09:54+00:00",
+      "first_test_snapshot": "2025-08-11T00:00:00+00:00",
+      "with_skill": {
+        "n": 36,
+        "brier": 0.169032,
+        "log_loss": 0.689786,
+        "auc": 0.751923
+      },
+      "without_skill": {
+        "n": 36,
+        "brier": 0.169031,
+        "log_loss": 0.689679,
+        "auc": 0.755769
+      },
+      "raw_market_price": {
+        "n": 36,
+        "brier": 0.171553,
+        "log_loss": 0.710182,
+        "auc": 0.734615
+      }
+    },
+    {
+      "window": "2025-09",
+      "train_events": 210,
+      "train_markets": 580,
+      "test_events": 34,
+      "test_markets": 84,
+      "last_train_resolution": "2025-08-23T14:38:07+00:00",
+      "first_test_snapshot": "2025-09-02T00:00:00+00:00",
+      "with_skill": {
+        "n": 84,
+        "brier": 0.071335,
+        "log_loss": 0.230161,
+        "auc": 0.966837
+      },
+      "without_skill": {
+        "n": 84,
+        "brier": 0.071328,
+        "log_loss": 0.230157,
+        "auc": 0.966837
+      },
+      "raw_market_price": {
+        "n": 84,
+        "brier": 0.068385,
+        "log_loss": 0.215783,
+        "auc": 0.96875
+      }
+    },
+    {
+      "window": "2025-10",
+      "train_events": 239,
+      "train_markets": 650,
+      "test_events": 56,
+      "test_markets": 153,
+      "last_train_resolution": "2025-09-30T23:15:15+00:00",
+      "first_test_snapshot": "2025-10-02T00:00:00+00:00",
+      "with_skill": {
+        "n": 153,
+        "brier": 0.092019,
+        "log_loss": 0.277835,
+        "auc": 0.942593
+      },
+      "without_skill": {
+        "n": 153,
+        "brier": 0.092021,
+        "log_loss": 0.277846,
+        "auc": 0.942593
+      },
+      "raw_market_price": {
+        "n": 153,
+        "brier": 0.090777,
+        "log_loss": 0.272578,
+        "auc": 0.944099
+      }
+    },
+    {
+      "window": "2025-11",
+      "train_events": 282,
+      "train_markets": 767,
+      "test_events": 59,
+      "test_markets": 165,
+      "last_train_resolution": "2025-10-31T23:32:04+00:00",
+      "first_test_snapshot": "2025-11-01T07:31:27+00:00",
+      "with_skill": {
+        "n": 165,
+        "brier": 0.08413,
+        "log_loss": 0.269938,
+        "auc": 0.941942
+      },
+      "without_skill": {
+        "n": 165,
+        "brier": 0.084131,
+        "log_loss": 0.269944,
+        "auc": 0.941942
+      },
+      "raw_market_price": {
+        "n": 165,
+        "brier": 0.083857,
+        "log_loss": 0.269642,
+        "auc": 0.942294
+      }
+    },
+    {
+      "window": "2025-12",
+      "train_events": 324,
+      "train_markets": 864,
+      "test_events": 44,
+      "test_markets": 109,
+      "last_train_resolution": "2025-11-25T07:37:21+00:00",
+      "first_test_snapshot": "2025-12-01T23:49:51+00:00",
+      "with_skill": {
+        "n": 109,
+        "brier": 0.076569,
+        "log_loss": 0.257317,
+        "auc": 0.946667
+      },
+      "without_skill": {
+        "n": 109,
+        "brier": 0.076546,
+        "log_loss": 0.257324,
+        "auc": 0.946667
+      },
+      "raw_market_price": {
+        "n": 109,
+        "brier": 0.078972,
+        "log_loss": 0.26844,
+        "auc": 0.945098
+      }
+    },
+    {
+      "window": "2026-01",
+      "train_events": 377,
+      "train_markets": 1030,
+      "test_events": 55,
+      "test_markets": 131,
+      "last_train_resolution": "2025-12-25T04:18:57+00:00",
+      "first_test_snapshot": "2026-01-08T08:09:46+00:00",
+      "with_skill": {
+        "n": 131,
+        "brier": 0.065252,
+        "log_loss": 0.227447,
+        "auc": 0.961538
+      },
+      "without_skill": {
+        "n": 131,
+        "brier": 0.065306,
+        "log_loss": 0.227777,
+        "auc": 0.961817
+      },
+      "raw_market_price": {
+        "n": 131,
+        "brier": 0.06589,
+        "log_loss": 0.236746,
+        "auc": 0.96112
+      }
+    },
+    {
+      "window": "2026-02",
+      "train_events": 427,
+      "train_markets": 1157,
+      "test_events": 41,
+      "test_markets": 100,
+      "last_train_resolution": "2026-01-31T14:41:44+00:00",
+      "first_test_snapshot": "2026-02-01T00:00:00+00:00",
+      "with_skill": {
+        "n": 100,
+        "brier": 0.082091,
+        "log_loss": 0.25882,
+        "auc": 0.936863
+      },
+      "without_skill": {
+        "n": 100,
+        "brier": 0.081882,
+        "log_loss": 0.258297,
+        "auc": 0.936377
+      },
+      "raw_market_price": {
+        "n": 100,
+        "brier": 0.079325,
+        "log_loss": 0.252371,
+        "auc": 0.942691
+      }
+    },
+    {
+      "window": "2026-03",
+      "train_events": 474,
+      "train_markets": 1289,
+      "test_events": 44,
+      "test_markets": 101,
+      "last_train_resolution": "2026-02-28T18:15:23+00:00",
+      "first_test_snapshot": "2026-03-02T00:00:00+00:00",
+      "with_skill": {
+        "n": 101,
+        "brier": 0.074104,
+        "log_loss": 0.228326,
+        "auc": 0.955628
+      },
+      "without_skill": {
+        "n": 101,
+        "brier": 0.074081,
+        "log_loss": 0.228283,
+        "auc": 0.955087
+      },
+      "raw_market_price": {
+        "n": 101,
+        "brier": 0.073608,
+        "log_loss": 0.223166,
+        "auc": 0.958063
+      }
+    },
+    {
+      "window": "2026-04",
+      "train_events": 506,
+      "train_markets": 1344,
+      "test_events": 75,
+      "test_markets": 212,
+      "last_train_resolution": "2026-03-31T23:13:17+00:00",
+      "first_test_snapshot": "2026-04-02T00:00:00+00:00",
+      "with_skill": {
+        "n": 212,
+        "brier": 0.097443,
+        "log_loss": 0.298449,
+        "auc": 0.931288
+      },
+      "without_skill": {
+        "n": 212,
+        "brier": 0.097557,
+        "log_loss": 0.2988,
+        "auc": 0.930755
+      },
+      "raw_market_price": {
+        "n": 212,
+        "brier": 0.099693,
+        "log_loss": 0.302513,
+        "auc": 0.931235
+      }
+    },
+    {
+      "window": "2026-05",
+      "train_events": 575,
+      "train_markets": 1551,
+      "test_events": 57,
+      "test_markets": 112,
+      "last_train_resolution": "2026-04-30T22:35:14+00:00",
+      "first_test_snapshot": "2026-05-01T09:02:36+00:00",
+      "with_skill": {
+        "n": 112,
+        "brier": 0.104463,
+        "log_loss": 0.317474,
+        "auc": 0.934028
+      },
+      "without_skill": {
+        "n": 112,
+        "brier": 0.104755,
+        "log_loss": 0.318168,
+        "auc": 0.933681
+      },
+      "raw_market_price": {
+        "n": 112,
+        "brier": 0.106207,
+        "log_loss": 0.320123,
+        "auc": 0.933333
+      }
+    },
+    {
+      "window": "2026-06",
+      "train_events": 639,
+      "train_markets": 1703,
+      "test_events": 81,
+      "test_markets": 187,
+      "last_train_resolution": "2026-05-31T23:46:11+00:00",
+      "first_test_snapshot": "2026-06-01T00:00:00+00:00",
+      "with_skill": {
+        "n": 187,
+        "brier": 0.096344,
+        "log_loss": 0.292317,
+        "auc": 0.939975
+      },
+      "without_skill": {
+        "n": 187,
+        "brier": 0.096375,
+        "log_loss": 0.292456,
+        "auc": 0.939849
+      },
+      "raw_market_price": {
+        "n": 187,
+        "brier": 0.095175,
+        "log_loss": 0.290325,
+        "auc": 0.940542
+      }
+    },
+    {
+      "window": "2026-07",
+      "train_events": 717,
+      "train_markets": 1889,
+      "test_events": 27,
+      "test_markets": 56,
+      "last_train_resolution": "2026-06-30T23:18:40+00:00",
+      "first_test_snapshot": "2026-07-01T23:59:00+00:00",
+      "with_skill": {
+        "n": 56,
+        "brier": 0.083792,
+        "log_loss": 0.279905,
+        "auc": 0.953741
+      },
+      "without_skill": {
+        "n": 56,
+        "brier": 0.08387,
+        "log_loss": 0.280021,
+        "auc": 0.955102
+      },
+      "raw_market_price": {
+        "n": 56,
+        "brier": 0.082191,
+        "log_loss": 0.282017,
+        "auc": 0.94966
+      }
+    },
+    {
+      "window": "2026-08",
+      "train_events": 754,
+      "train_markets": 1973,
+      "test_events": 59,
+      "test_markets": 101,
+      "last_train_resolution": "2026-07-31T22:33:41+00:00",
+      "first_test_snapshot": "2026-08-03T00:00:00+00:00",
+      "with_skill": {
+        "n": 101,
+        "brier": 0.130998,
+        "log_loss": 0.416642,
+        "auc": 0.896332
+      },
+      "without_skill": {
+        "n": 101,
+        "brier": 0.13093,
+        "log_loss": 0.416139,
+        "auc": 0.895534
+      },
+      "raw_market_price": {
+        "n": 101,
+        "brier": 0.128856,
+        "log_loss": 0.411545,
+        "auc": 0.895136
+      }
+    },
+    {
+      "window": "2026-09",
+      "train_events": 815,
+      "train_markets": 2080,
+      "test_events": 61,
+      "test_markets": 128,
+      "last_train_resolution": "2026-08-31T22:02:33+00:00",
+      "first_test_snapshot": "2026-09-01T00:00:00+00:00",
+      "with_skill": {
+        "n": 128,
+        "brier": 0.137917,
+        "log_loss": 0.41293,
+        "auc": 0.884615
+      },
+      "without_skill": {
+        "n": 128,
+        "brier": 0.137472,
+        "log_loss": 0.411475,
+        "auc": 0.885121
+      },
+      "raw_market_price": {
+        "n": 128,
+        "brier": 0.141772,
+        "log_loss": 0.429763,
+        "auc": 0.882971
+      }
+    },
+    {
+      "window": "2026-10",
+      "train_events": 881,
+      "train_markets": 2222,
+      "test_events": 77,
+      "test_markets": 164,
+      "last_train_resolution": "2026-09-30T22:05:11+00:00",
+      "first_test_snapshot": "2026-10-02T23:59:00+00:00",
+      "with_skill": {
+        "n": 164,
+        "brier": 0.137467,
+        "log_loss": 0.41306,
+        "auc": 0.882189
+      },
+      "without_skill": {
+        "n": 164,
+        "brier": 0.13772,
+        "log_loss": 0.413411,
+        "auc": 0.882344
+      },
+      "raw_market_price": {
+        "n": 164,
+        "brier": 0.144631,
+        "log_loss": 0.43264,
+        "auc": 0.874691
+      }
+    },
+    {
+      "window": "2026-11",
+      "train_events": 952,
+      "train_markets": 2373,
+      "test_events": 172,
+      "test_markets": 293,
+      "last_train_resolution": "2026-10-31T23:34:52.302769+00:00",
+      "first_test_snapshot": "2026-11-01T04:59:00+00:00",
+      "with_skill": {
+        "n": 293,
+        "brier": 0.098301,
+        "log_loss": 0.318677,
+        "auc": 0.948965
+      },
+      "without_skill": {
+        "n": 293,
+        "brier": 0.098682,
+        "log_loss": 0.319777,
+        "auc": 0.948499
+      },
+      "raw_market_price": {
+        "n": 293,
+        "brier": 0.095909,
+        "log_loss": 0.306916,
+        "auc": 0.94773
+      }
+    }
+  ],
+  "skipped_windows": [
+    {
+      "window": "2024-07",
+      "train_markets": 0,
+      "test_markets": 6,
+      "reason": "insufficient history or test markets or train class balance"
+    },
+    {
+      "window": "2024-08",
+      "train_markets": 6,
+      "test_markets": 0,
+      "reason": "insufficient history or test markets or train class balance"
+    },
+    {
+      "window": "2024-09",
+      "train_markets": 6,
+      "test_markets": 0,
+      "reason": "insufficient history or test markets or train class balance"
+    },
+    {
+      "window": "2024-10",
+      "train_markets": 6,
+      "test_markets": 2,
+      "reason": "insufficient history or test markets or train class balance"
+    },
+    {
+      "window": "2024-11",
+      "train_markets": 8,
+      "test_markets": 0,
+      "reason": "insufficient history or test markets or train class balance"
+    },
+    {
+      "window": "2024-12",
+      "train_markets": 8,
+      "test_markets": 1,
+      "reason": "insufficient history or test markets or train class balance"
+    },
+    {
+      "window": "2025-01",
+      "train_markets": 8,
+      "test_markets": 28,
+      "reason": "insufficient history or test markets or train class balance"
+    }
+  ],
+  "limitations": [
+    "Past source data use estimated public information times and prices; timing/settlement need independent audit.",
+    "This is an observational historical backtest, not a prospective trial or evidence of nonpublic information.",
+    "Training months must have sufficient already-resolved history; early months may be skipped.",
+    "Several markets can share an event, so confidence intervals resample events, not rows.",
+    "Model feature construction is inherited from the previously computed asof_features.csv.",
+    "This script does not modify or deploy data/run models or live web output."
+  ],
+  "input_features_path": "data/run_expanded/asof_features.csv",
+  "model_provenance_source": "Aiden full historical archive - timing unverified"
+}

@@ -1,0 +1,40 @@
+{
+  "kind": "future_wallet_outperformance_probability",
+  "target": "positive mean signed price edge on >=3 future resolved events (NOT private information)",
+  "source": "Aiden full historical archive - timing unverified",
+  "trained_at": "2026-11-17T01:40:45.039544+00:00",
+  "asof": "2026-11-17T01:40:25.213420+00:00",
+  "last_training_resolution": "2026-11-14T08:41:40.301830+00:00",
+  "features": [
+    "prior_event_count_log",
+    "prior_mean_edge",
+    "prior_positive_share",
+    "prior_edge_standardized",
+    "prior_avg_stake_log"
+  ],
+  "intercept": 0.17785871341697027,
+  "coefficients": [
+    -0.13310079411139186,
+    -0.18907756798075712,
+    0.20005447980323,
+    0.10032545309327624,
+    0.12204165629839762
+  ],
+  "feature_means": [
+    2.4194052024130657,
+    0.003288056967996042,
+    0.5674273077743941,
+    0.005737069055170951,
+    4.681777626446743
+  ],
+  "feature_scales": [
+    0.9068251216608723,
+    0.11026255812266011,
+    0.23181258463435292,
+    0.28999573774077525,
+    2.371181212756573
+  ],
+  "minimum_prior_events": 3,
+  "minimum_future_events": 3,
+  "trained_examples": 2408
+}

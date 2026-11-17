@@ -1,0 +1,56 @@
+{
+  "status": "COMPLETED ON REAL HISTORICAL FEATURES (team terminal output, 2026-11-16)",
+  "source": "Numbers transcribed from user terminal output; not independently rerun in this package.",
+  "features_file": "data/run/asof_features.csv",
+  "prepared_markets": 1175,
+  "prepared_events": 491,
+  "evaluated_markets": 1127,
+  "evaluated_events": 480,
+  "months": 10,
+  "not_evaluated_markets": 48,
+  "models": {
+    "with_skill": {
+      "brier": 0.0972,
+      "auc": 0.93313,
+      "log_loss": 0.3046
+    },
+    "without_skill": {
+      "brier": 0.0972,
+      "auc": 0.933187,
+      "log_loss": 0.3043
+    },
+    "price_only_recalibrated": {
+      "brier": 0.0972,
+      "auc": 0.933072,
+      "log_loss": 0.3039
+    },
+    "raw_market_price": {
+      "brier": 0.0969,
+      "auc": 0.933949,
+      "log_loss": 0.3034
+    }
+  },
+  "delta_brier_with_minus_without": 6.21e-05,
+  "delta_auc_with_minus_without": -5.7e-05,
+  "event_bootstrap_95ci_delta_brier": [
+    -0.0001228,
+    0.0002422
+  ],
+  "event_bootstrap_95ci_delta_auc": [
+    -0.000345,
+    0.000242
+  ],
+  "monthly_test_markets": {
+    "2025-12": 14,
+    "2026-01": 127,
+    "2026-02": 100,
+    "2026-03": 101,
+    "2026-04": 206,
+    "2026-05": 109,
+    "2026-06": 187,
+    "2026-07": 55,
+    "2026-08": 106,
+    "2026-09": 122
+  },
+  "interpretation": "Wallet skill provides no detectable incremental predictive improvement; baseline market prices slightly outperform tested models; public-information timing still requires independent audit."
+}

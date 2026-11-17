@@ -1,0 +1,69 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PolyInsiders | Real Results</title><link rel="stylesheet" href="assets/style.css"></head><body><div id="ticker"></div><div id="hdr"></div><main><!-- FINAL-EXPANDED -->
+<h2 class="sectiontitle">Current expanded-model evaluation</h2>
+<div class="panel">
+<div class="hd">
+<h2>22-month walk-forward results</h2>
+<span class="sub">2,645 markets · 1,117 events</span>
+</div>
+<div class="bd">
+<div class="tw">
+<table>
+<thead><tr><th>Model</th><th>AUC ↑</th><th>Brier ↓</th></tr></thead>
+<tbody>
+<tr><td>PolyInsiders + wallet skill</td><td>0.935207</td><td>0.095509</td></tr>
+<tr><td>Raw Polymarket prices</td><td>0.935822</td><td>0.095733</td></tr>
+</tbody>
+</table>
+</div>
+<p class="small">
+Wallet-model AUC 0.5809 in a separate holdout.
+V4 flagged 207 of 17,254 eligible wallets.
+Trader timing: 44 wallets met two-period criteria;
+22 showed positive later excess at the earlier selected hour.
+The wallet-skill effect is inconclusive; flagged status
+does not imply private information.
+</p>
+</div></div>
+
+<!-- LATEST-V4-RESULTS -->
+<h2 class="sectiontitle">Latest V4 findings · expanded archive</h2>
+<div class="kpis">
+<div class="metric">
+<div class="tag">V4 wallet screen</div>
+<div class="val">207</div>
+<div class="lbl">Flagged of 17,254 eligible wallets</div>
+</div>
+<div class="metric">
+<div class="tag">Evaluated later</div>
+<div class="val">170</div>
+<div class="lbl">Flagged wallets with subsequent data</div>
+</div>
+<div class="metric">
+<div class="tag">Expanded training</div>
+<div class="val">2,682</div>
+<div class="lbl">Prepared markets</div>
+</div>
+<div class="metric">
+<div class="tag">Monthly backtest</div>
+<div class="val">22</div>
+<div class="lbl">Walk-forward months</div>
+</div>
+</div>
+<p class="small">
+The earlier 19-wallet result belongs to a different historical
+screen, not this V4 analysis. Wallet flags are not proof of
+nonpublic information.
+<a href="timing.html">Explore individual wallet timing →</a>
+</p>
+<!-- END LATEST-V4-RESULTS -->
+
+<div class="pagehead"><span class="eyebrow">03 / November 16, 2026</span><h1>Real-data model results</h1><p class="lead">This is the team’s actual historical evaluation, as reported in terminal outputs after importing Aiden’s archived Polymarket trades. Figures below were not independently recalculated in this downloadable copy; the original Mac data remain outside this ZIP.</p></div>
+<div class="callout"><p><strong>Bottom line.</strong> Both models trained on real data and the local tracker recorded live forecasts. The market-outcome model did <strong>not</strong> beat Polymarket's own price baseline, and the historical wallet-skill flow feature showed no measurable incremental improvement in this backtest.</p></div>
+<h2 class="sectiontitle">Earlier 1,175-market benchmark</h2><h2 class="sectiontitle">Data preparation</h2><div class="kpis"><div class="metric"><div class="tag">Original archive</div><div class="val">15.58M</div><div class="lbl">Historical fills</div></div><div class="metric"><div class="tag">Model-ready</div><div class="val">1,175</div><div class="lbl">Markets</div></div><div class="metric"><div class="tag">Model-ready</div><div class="val">491</div><div class="lbl">Events</div></div><div class="metric"><div class="tag">Model-ready</div><div class="val">82,586</div><div class="lbl">Unique wallets</div></div></div>
+<div class="panel"><div class="hd"><h2>Historical market-outcome test</h2><span class="sub">303 test markets · 148 events</span></div><div class="bd"><div class="tw"><table><thead><tr><th>Specification</th><th>AUC ↑</th><th>Brier ↓</th><th>Log loss ↓</th></tr></thead><tbody><tr><td>Full model with wallet skill</td><td>0.9008</td><td>0.1276</td><td>0.4065</td></tr><tr><td>Without wallet skill</td><td>0.9009</td><td>0.1275</td><td>0.4063</td></tr><tr><td>Recalibrated price only</td><td>0.9015</td><td>0.1262</td><td>0.4031</td></tr><tr><td><strong>Raw Polymarket price</strong></td><td><strong>0.9015</strong></td><td><strong>0.1244</strong></td><td><strong>0.3908</strong></td></tr></tbody></table></div><p class="small">Lower Brier and log loss are better; higher AUC is better. AUC does not measure calibration. Only 97 markets / 31 events were in the original backtest training split; the deployed model was subsequently refitted on all 1,175 prepared markets.</p></div></div>
+<div class="grid"><div class="panel"><div class="hd"><h2>Wallet model</h2></div><div class="bd"><div class="metric" style="box-shadow:none"><div class="val">0.5109</div><div class="lbl">AUC · 504 held-out wallets</div></div><p>Future wallet outperformance was only marginally distinguishable from chance by rank. Model Brier: <strong>0.2519</strong>; baseline: <strong>0.2510</strong>. This is not a verified insider detector.</p></div></div><div class="panel"><div class="hd"><h2>Does wallet skill add information?</h2></div><div class="bd"><div class="metric" style="box-shadow:none"><div class="val">+0.000026</div><div class="lbl">Brier difference: with minus without skill</div></div><p>Event-bootstrap 95% CI <strong>[-0.000057, +0.000119]</strong>. Includes zero; no detectable improvement. AUC difference <strong>-0.000092</strong> (95% CI [-0.000533, +0.000267]).</p></div></div></div>
+<div class="panel"><div class="hd"><h2>Completed monthly walk-forward evaluation</h2><span class="sub">1,127 markets · 480 events · 10 months</span></div><div class="bd"><p>Real archive-derived features, reported in the team's November 16 terminal run. Exactly <strong>48</strong> of 1,175 prepared markets were not evaluated in monthly folds.</p><div class="tw"><table><thead><tr><th>Model</th><th>AUC ↑</th><th>Brier ↓</th><th>Log loss ↓</th></tr></thead><tbody><tr><td>With wallet-skill flow</td><td>0.933130</td><td>0.0972</td><td>0.3046</td></tr><tr><td>Without wallet-skill flow</td><td>0.933187</td><td>0.0972</td><td>0.3043</td></tr><tr><td>Price only, recalibrated</td><td>0.933072</td><td>0.0972</td><td>0.3039</td></tr><tr><td><strong>Raw Polymarket price</strong></td><td><strong>0.933949</strong></td><td><strong>0.0969</strong></td><td><strong>0.3034</strong></td></tr></tbody></table></div><p class="small">Difference (with minus without): Brier +0.0000621 (event-bootstrap 95% CI [-0.0001228, +0.0002422]); AUC -0.000057 (95% CI [-0.000345, +0.000242]). Intervals include zero; no detectable wallet-skill advantage. Brier values rounded to four decimal places.</p></div></div>
+<div class="panel"><div class="hd"><h2>Live tracker snapshot</h2><span class="sub">User-verified local session</span></div><div class="bd"><div class="kpis" style="margin:0"><div class="metric"><div class="val">144</div><div class="lbl">Saved forecasts</div></div><div class="metric"><div class="val">8</div><div class="lbl">Unique markets</div></div><div class="metric"><div class="val">144/144</div><div class="lbl">Captured before *scheduled* end</div></div><div class="metric"><div class="val">24/144</div><div class="lbl">Nonzero skill-flow snapshots</div></div></div><p class="small" style="margin-top:13px">Captured November 16, 2026, 22:14–22:42 UTC. A scheduled end-date check is not an independently verified actual-resolution check. Multiple snapshots of the same market are not independent test outcomes.</p></div></div>
+<div class="panel"><div class="hd"><h2>Monthly walk-forward evaluation</h2><span class="sub">Optional final check</span></div><div class="bd" id="walk-forward-status"><p class="small">Not yet run with this site's real-data history. The script is included in the project and writes a separate results file once executed.</p></div></div>
+<div class="callout warning"><p><strong>Still needed:</strong> Independent timing audit and verified post-settlement scoring of saved prospective forecasts. The existing results do not demonstrate nonpublic information or performance better than market prices.</p></div>
+</main><div id="ftr"></div><script src="assets/app.js"></script><script>layout('empirical.html');getJSON('data/walk_forward_evaluation.json').then(r=>{let el=document.getElementById('walk-forward-status');if(!el)return;let src=String(r.model_provenance_source||'not recorded');let metrics=r.metrics||{};let a=metrics.with_skill||{};let b=metrics.raw_market_price||{};el.innerHTML='<p><strong>Fold results file found.</strong> '+esc(r.n_monthly_folds)+' monthly folds; '+esc(r.evaluated_markets)+' test markets; '+esc(r.evaluated_events)+' test events. Provenance: '+esc(src)+'.</p><p>With skill — Brier '+esc(a.brier)+'; AUC '+esc(a.auc)+'. Raw public price — Brier '+esc(b.brier)+'; AUC '+esc(b.auc)+'.</p><p class="small">Historical backtest only; validate the source and output before reporting. This does not score live prospective events.</p>';}).catch(()=>{});</script></body></html>
