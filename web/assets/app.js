@@ -4,11 +4,11 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const fmt=(x,n=1)=>Number(x).toLocaleString('en-US',{maximumFractionDigits:n,minimumFractionDigits:n});
 const num=x=>Number(x).toLocaleString('en-US',{maximumFractionDigits:0});
 const pct=x=>fmt(Number(x)*100,1)+'%';
-const nav=[['index.html','Overview'],['findings.html','Prior findings'],['empirical.html','Real results'],['tracker.html','Live tracker'],['timing.html','Trader timing'],['alerts.html','Alerts'],['methodology.html','Method']];
+const nav=[['index.html','Overview'],['timing.html','Trader timing'],['alerts.html','Alerts'],['tracker.html','Live tracker'],['empirical.html','Model results'],['findings.html','Findings'],['methodology.html','Method']];
 function layout(page){
- $('ticker').innerHTML='<b>ECE 473 / Princeton</b><span>Research prototype</span><span>Independent forecasts · saved before resolution</span>';
+ $('ticker').innerHTML='<b>PolyInsiders</b><span>Prediction-market wallet intelligence</span><span>Forecasts time-stamped before resolution</span>';
  $('hdr').innerHTML='<div class="inner"><a class="brand" href="index.html">poly<span>insiders</span></a><nav>'+nav.map(([href,name])=>'<a '+(href===page?'class="active" ':'')+'href="'+href+'">'+name+'</a>').join('')+'</nav></div>';
- $('ftr').innerHTML='<div class="footer"><div class="inner footcols"><div><strong>PolyInsiders · ECE 473</strong><div>Aiden Sandler &amp; Emilly Antero · November 2026</div></div><div>Research only. Public wallet performance does not prove private information.<div><a href="methodology.html">Methods &amp; limitations</a></div></div></div></div>';
+ $('ftr').innerHTML='<div class="footer"><div class="inner footcols"><div><strong>PolyInsiders</strong><div>Built by Aiden Sandler &amp; Emilly Antero</div></div><div>For research and information only, not financial advice. A strong trading record does not prove private information.<div><a href="methodology.html">Method &amp; limitations</a></div></div></div></div>';
 }
 async function getJSON(p){const response=await fetch(p+'?v='+Date.now(),{cache:'no-store'});if(!response.ok)throw Error(response.status+' from '+p);return await response.json()}
 function setText(id,text){const el=$(id);if(el)el.textContent=text}

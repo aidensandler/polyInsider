@@ -74,7 +74,7 @@
 <main>
 
 <div class="pagehead">
-<span class="eyebrow">05b / Time-of-day view</span>
+<span class="eyebrow">Time of day</span>
 <h1>Time-of-day view (UTC)</h1>
 <p><a href="timing.html">← Back to the main timing analysis</a></p>
 <p class="lead">
@@ -85,19 +85,13 @@ in the same markets.
 </p>
 </div>
 
-<div class="callout">
-<p><strong>Research question.</strong>
-Do wallets identified by historical trading performance
-exhibit distinctive trading patterns by hour of day,
-day of week, or proximity to recorded information times?
-</p>
-</div>
+
 
 <h2 class="sectiontitle">Trading activity overview</h2>
 
 <div class="kpis">
 <div class="metric">
-<div class="tag">V4 wallet screen</div>
+<div class="tag">Flagged wallets</div>
 <div class="val" id="wallets">—</div>
 <div class="lbl">Flagged wallets matched</div>
 </div>
@@ -184,7 +178,7 @@ activity, liquidity, and event schedules.
 <div class="bd prose">
 <p>
 We use timestamped archived trade records and
-Aiden's V4 wallet classifications.
+our flagged-wallet list.
 </p>
 <p>
 The two groups are compared within the same markets.
@@ -208,10 +202,7 @@ or private information.
 </div>
 
 
-<!-- WALLET-TIMING-V4 -->
-<h2 class="sectiontitle">
-Individual wallet timing · historical holdout
-</h2>
+<h2 class="sectiontitle">Individual wallet timing</h2>
 <div class="panel">
 <div class="hd">
 <h2>Does a particular wallet trade at a specific hour?</h2>
@@ -408,7 +399,7 @@ async function init(){
    .join('');
 
   E('wt-overall').textContent=
-  `Latest V4 screen: ${fmt(D.v4_flagged)} flagged
+  `Latest screen: ${fmt(D.v4_flagged)} flagged
   of ${fmt(D.v4_eligible)} eligible wallets.
   ${fmt(D.evaluated_wallets)} wallets satisfy the
   two-period sample thresholds; ${fmt(D.positive_retest)}
