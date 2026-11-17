@@ -4,7 +4,7 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const fmt=(x,n=1)=>Number(x).toLocaleString('en-US',{maximumFractionDigits:n,minimumFractionDigits:n});
 const num=x=>Number(x).toLocaleString('en-US',{maximumFractionDigits:0});
 const pct=x=>fmt(Number(x)*100,1)+'%';
-const nav=[['index.html','Overview'],['findings.html','Prior findings'],['empirical.html','Real results'],['tracker.html','Live tracker'],['timing.html','Trader timing'],['methodology.html','Method']];
+const nav=[['index.html','Overview'],['findings.html','Prior findings'],['empirical.html','Real results'],['tracker.html','Live tracker'],['timing.html','Trader timing'],['alerts.html','Alerts'],['methodology.html','Method']];
 function layout(page){
  $('ticker').innerHTML='<b>ECE 473 / Princeton</b><span>Research prototype</span><span>Independent forecasts · saved before resolution</span>';
  $('hdr').innerHTML='<div class="inner"><a class="brand" href="index.html">poly<span>insiders</span><span style="font-size:8px;vertical-align:top;letter-spacing:0;margin-left:5px">LAB</span></a><nav>'+nav.map(([href,name])=>'<a '+(href===page?'class="active" ':'')+'href="'+href+'">'+name+'</a>').join('')+'</nav></div>';

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PolyInsiders | Alerts and copy-trading tests</title>
+<link rel="stylesheet" href="assets/style.css">
+<style>
+.ci{position:relative;height:18px;background:#f0f3ed;border-radius:3px;min-width:220px}
+.ci .zero{position:absolute;top:0;bottom:0;width:1px;background:#8a958f}
+.ci .rng{position:absolute;top:7px;height:4px;background:#9fbfab;border-radius:2px}
+.ci .pt{position:absolute;top:3px;width:10px;height:12px;margin-left:-5px;background:var(--green);border-radius:2px}
+.ci .pt.neg{background:var(--coral)}
+td.num{font-variant-numeric:tabular-nums}
+.sel{margin:0 0 16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--muted)}
+.sel select{padding:8px;border:1px solid #9ba7b5;border-radius:6px;background:transparent;color:inherit}
+</style>
+</head>
+<body>
+<div id="ticker"></div>
+<div id="hdr"></div>
+<main>
+<div class="pagehead">
+<span class="eyebrow">06 / Alerts and copy-trading tests</span>
+<h1>Could you profit by following flagged wallets?</h1>
+<p class="lead">
+We replayed 2025 to 2026 history and asked: if an alert had fired when a skilled-looking wallet traded,
+and you had copied that trade after a delay, would you have made money on later markets?
+Every number below uses only information available at the time of the trade.
+</p>
+</div>
+
+<div class="callout warning"><p><strong>Bottom line.</strong>
+The machine-learning alert model <em>did not work</em> out of sample: it lost about 20% per dollar staked.
+A much simpler rule (follow wallets whose past evidence score is at least 3, with 10 or more past events)
+earned a modest positive return of about 8% to 14%, but the uncertainty is wide, a few wallets drive much of it,
+and in the final untouched window random trades also made money. This is a research result, not a trading signal.</p></div>
+
+<div class="kpis" id="kpis"></div>
+
+<section class="panel"><div class="hd"><h2>Forward windows, all strategies pooled</h2><span class="sub">Return per $ staked, 95% interval</span></div>
+<div class="bd">
+<div class="sel"><label>Copy delay <select id="delay"></select></label>
+<span>Bar shows the return; the whisker is the 95% bootstrap interval. Intervals that cross the vertical zero line are not distinguishable from no edge.</span></div>
+<div class="tw"><table id="pool"></table></div>
+<p class="small" id="poolnote"></p>
+</div></section>
+
+<section class="panel"><div class="hd"><h2>One-shot test on a fresh window</h2><span class="sub">Oct to Nov 2026, never used for any decision</span></div>
+<div class="bd">
+<div class="sel"><label>Extra cost per trade <select id="slip"><option value="0">none</option><option value="0.01">1 cent</option></select></label></div>
+<div class="tw"><table id="fresh"></table></div>
+<p class="small">The rule was frozen before this window. At a 5-minute delay it returned +8.4% (interval -0.8% to +18.0%), while random trades in the same window returned +4.1%. The edge over random is therefore small and not statistically clear.</p>
+</div></section>
+
+<section class="panel"><div class="hd"><h2>How to read this</h2></div><div class="bd prose">
+<p><strong>Alert.</strong> A trade by a wallet that the scoring system considers skilled, using only that wallet's earlier resolved events.
+<strong>Copy return.</strong> Buy the same side at the market price a set delay later, hold to resolution, and divide profit by dollars staked.
+<strong>Delay.</strong> 0 minutes is an upper bound you could not actually achieve; 5 minutes and 1 hour are realistic.</p>
+<p><strong>Why the model failed but the simple rule held up.</strong> The model learned from a short, small set of flagged wallets and did not carry over to later periods.
+A single evidence score with a long-enough track record is less prone to that kind of overfitting.</p>
+<h3>Cautions</h3>
+<ul>
+<li>Copying a trade can move the price against you; the results include a 1 cent test but not full market impact.</li>
+<li>The rule is concentrated: one wallet supplies a large share of alerts and profit. See the "without top wallet" figure in the repository results.</li>
+<li>All intervals are wide. Agreement between strategies (for example following several wallets at once) was not established.</li>
+<li>Flagged wallets are not proven insiders; they are wallets whose past results were unusually good.</li>
+</ul>
+<p class="small">Full code, tests and result files are in the <span class="inline-code">analysis/</span> folder of the repository.</p>
+</div></section>
+</main>
+<div id="ftr"></div>
+<script src="assets/app.js"></script>
+<script>
+layout('alerts.html');
+const P=(v)=>(v>=0?'+':'')+fmt(v*100,1)+'%';
+function whisker(r,lo,hi,rng){const sc=v=>Math.max(0,Math.min(100,(v-rng[0])/(rng[1]-rng[0])*100));
+ return '<div class="ci"><div class="zero" style="left:'+sc(0)+'%"></div><div class="rng" style="left:'+sc(lo)+'%;width:'+(sc(hi)-sc(lo))+'%"></div><div class="pt'+(r<0?' neg':'')+'" style="left:'+sc(r)+'%"></div></div>'}
+function table(el,rows,cols,label){
+ const lo=Math.min(-.1,...rows.map(r=>r.roi_lo)),hi=Math.max(.1,...rows.map(r=>r.roi_hi));
+ el.innerHTML='<thead><tr><th>'+label+'</th><th>Alerts</th><th>Events</th><th>Wallets</th><th>Return</th><th>95% interval</th><th style="min-width:240px">Chart</th></tr></thead><tbody>'+
+ rows.map(r=>'<tr><td>'+esc(r.strategy)+'</td><td class="num">'+num(r.alerts)+'</td><td class="num">'+num(r.events)+'</td><td class="num">'+num(r.wallets)+'</td><td class="num"><strong>'+P(r.roi)+'</strong></td><td class="num">'+P(r.roi_lo)+' to '+P(r.roi_hi)+'</td><td>'+whisker(r.roi,r.roi_lo,r.roi_hi,[lo,hi])+'</td></tr>').join('')+'</tbody>';
+}
+getJSON('data/alerts.json').then(D=>{
+ const delays=[...new Set(D.pooled.map(r=>r.delay))];
+ $('delay').innerHTML=delays.map(d=>'<option'+(d==='5 min'?' selected':'')+'>'+esc(d)+'</option>').join('');
+ const draw=()=>{const d=$('delay').value;const rows=D.pooled.filter(r=>r.delay===d).sort((a,b)=>b.roi-a.roi);table($('pool'),rows,0,'Strategy');
+  const w=rows.find(r=>r.strategy.startsWith('Past score'));$('poolnote').textContent=w?('Simple rule: positive in '+w.windows_positive+' of '+w.windows+' forward quarters; worst quarter '+P(w.worst_window_roi)+'.'):''};
+ $('delay').onchange=draw;draw();
+ const m5=D.pooled.filter(r=>r.delay==='5 min');const g=n=>m5.find(r=>r.strategy.startsWith(n));
+ const k=[['Simple rule (Z at least 3, 10+ events)',g('Past score'),'5-min delay, pooled forward windows'],['ML alert model (all features)',g('All features'),'5-min delay, pooled forward windows'],['All candidate trades',g('All candidate'),'Baseline: copy everything']];
+ $('kpis').innerHTML=k.map(([t,r,s])=>'<div class="metric"><div class="tag">'+esc(s)+'</div><div class="val">'+P(r.roi)+'</div><div class="lbl">'+esc(t)+' · '+P(r.roi_lo)+' to '+P(r.roi_hi)+'</div></div>').join('')+'<div class="metric"><div class="tag">Fresh Oct to Nov 2026</div><div class="val">'+P(D.fresh.find(r=>r.strategy.startsWith('PRIMARY')&&r.delay==='5 min'&&r.slippage===0).roi)+'</div><div class="lbl">Simple rule, 5-min delay, one-shot test</div></div>';
+ const drawF=()=>{const s=Number($('slip').value);const rows=D.fresh.filter(r=>r.slippage===s).map(r=>({...r,strategy:r.strategy+' · '+r.delay}));table($('fresh'),rows,0,'Strategy · delay')};
+ $('slip').onchange=drawF;drawF();
+}).catch(e=>{$('kpis').textContent='Cannot load alerts.json: '+e.message});
+</script>
+</body></html>

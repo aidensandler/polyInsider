@@ -26,6 +26,7 @@ Alternatively, preview saved website files without live collection:
 ## Website pages
 
 - Overview: index.html
+- Alerts and copy-trading tests: alerts.html
 - Live Tracker: tracker.html
 - Real Results: empirical.html
 - Trader Timing: timing.html
