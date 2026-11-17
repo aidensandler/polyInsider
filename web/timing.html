@@ -6,429 +6,201 @@
 <title>PolyInsiders | Trader Timing</title>
 <link rel="stylesheet" href="assets/style.css">
 <style>
-/* Only chart-specific styles; the site owns the page design */
-#plot {
-  display:flex;
-  align-items:flex-end;
-  gap:5px;
-  height:270px;
-  min-width:760px;
-}
-#plot .group {
-  flex:1;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-end;
-}
-#plot .pair {
-  height:225px;
-  width:100%;
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
-  gap:3px;
-}
-#plot .bar {
-  width:40%;
-  min-height:1px;
-  border-radius:4px 4px 0 0;
-}
-#plot .bar.flag {background:#24b99e}
-#plot .bar.other {background:#7c9fc7}
-#plot .tick {
-  font-size:10px;
-  opacity:.75;
-  margin-top:7px;
-}
-.timing-controls {
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-bottom:20px;
-}
-.timing-controls select {
-  color:inherit;
-  background:transparent;
-  border:1px solid #9ba7b5;
-  border-radius:7px;
-  padding:10px;
-  max-width:100%;
-}
-.timing-legend {
-  margin:12px 0;
-  font-size:13px;
-}
-.timing-swatch {
-  display:inline-block;
-  width:11px;
-  height:11px;
-  margin:0 6px 0 14px;
-}
+.sel{margin:0 0 16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--muted)}
+.sel select,.sel input{padding:9px 10px;border:1px solid #9ba7b5;border-radius:6px;background:transparent;color:inherit;font:inherit;font-size:13px;max-width:100%}
+.sel input{min-width:230px}
+.hb{display:grid;grid-template-columns:150px 1fr;gap:10px;align-items:center;margin:9px 0}
+.hb .lab{font-size:12px;font-weight:700;text-align:right;line-height:1.25}
+.hb .tracks{display:flex;flex-direction:column;gap:3px}
+.tr{position:relative;height:15px;background:#f0f3ed;border-radius:3px}
+.tr .fill{position:absolute;left:0;top:0;bottom:0;border-radius:3px}
+.tr .fill.f{background:var(--green)}.tr .fill.o{background:var(--coral);opacity:.8}.tr .fill.a{background:#9aa7a0}
+.tr .whisk{position:absolute;top:6px;height:3px;background:#0e3b2c;opacity:.55}
+.tr .v{position:absolute;right:6px;top:0;font-size:10px;line-height:15px;font-weight:700;color:#233}
+.key{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:4px 0 14px}
+.key i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.read{background:#f5f7f3;border-left:3px solid var(--green);padding:12px 16px;margin:14px 0 4px;font-size:14px;line-height:1.6;border-radius:3px}
+tr.row{cursor:pointer}tr.row:hover td{background:#f4f8f2}tr.row.on td{background:#e9f3e6}
+#wtable thead th{position:sticky;top:0;z-index:1}th.s{cursor:pointer;user-select:none}th.s:hover{color:#0e3b2c}
+.mono{font-family:ui-monospace,Menlo,monospace;font-size:11.5px}
+.pager{display:flex;gap:10px;align-items:center;justify-content:flex-end;font-size:12px;color:var(--muted);margin-top:10px}
+.pager button{padding:6px 12px;border:1px solid #9ba7b5;background:transparent;border-radius:5px;cursor:pointer;color:inherit}
+.pager button:disabled{opacity:.4;cursor:default}
+.win{color:#1a7a4a;font-weight:700}.loss{color:#b24a37;font-weight:700}
+.detail{border-top:1px solid var(--border);padding:22px 23px;background:#fbfcfa}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+@media(max-width:760px){.cols2{grid-template-columns:1fr}.hb{grid-template-columns:100px 1fr}}
+.pill2{display:inline-block;padding:3px 8px;border-radius:3px;background:#e9f3e6;font-size:11px;font-weight:700;margin:2px 4px 2px 0}
 </style>
 </head>
 <body>
 <div id="ticker"></div>
 <div id="hdr"></div>
 <main>
-
 <div class="pagehead">
-<span class="eyebrow">05 / Trader Timing Analysis</span>
-<h1>When do flagged traders trade?</h1>
+<span class="eyebrow">05 / Trader timing analysis</span>
+<h1>When do the flagged wallets trade?</h1>
 <p class="lead">
-We examine whether historically flagged Polymarket wallets
-concentrate their trading activity at particular times,
-and compare their behavior with other participants
-in the same markets.
+We measured when flagged wallets place their trades compared with other experienced traders: how long before a market
+resolves, how far through its life, and relative to the market's biggest price moves. Then we checked whether the price
+moved in their favour afterwards. Everything below covers markets after the 1 June 2026 cut-off, using wallets that were flagged
+only from earlier data.
 </p>
 </div>
 
-<div class="callout">
-<p><strong>Research question.</strong>
-Do wallets identified by historical trading performance
-exhibit distinctive trading patterns by hour of day,
-day of week, or proximity to recorded information times?
-</p>
-</div>
+<div class="callout warning"><p><strong>Bottom line.</strong>
+Flagged wallets <em>do</em> trade a little differently: a bit more of their money lands in the final day before resolution, and noticeably more lands
+just before or during the market's biggest price jumps, and the price tends to keep moving their way for hours afterwards.
+But most of their money (roughly 75% to 85%) goes in more than a day before the event, the differences are modest, and we cannot rule out that their own buying
+moved the price. This is a pattern, not proof that anyone traded on private information.</p></div>
 
-<h2 class="sectiontitle">Trading activity overview</h2>
+<div class="kpis" id="kpis"></div>
 
-<div class="kpis">
-<div class="metric">
-<div class="tag">V4 wallet screen</div>
-<div class="val" id="wallets">—</div>
-<div class="lbl">Flagged wallets matched</div>
-</div>
-<div class="metric">
-<div class="tag">Historical sample</div>
-<div class="val" id="markets">—</div>
-<div class="lbl">Markets analyzed</div>
-</div>
-<div class="metric">
-<div class="tag">Analysis period</div>
-<div class="val" id="cutoff">—</div>
-<div class="lbl">Start date (UTC)</div>
-</div>
-</div>
-
-<div class="panel">
-<div class="hd">
-<h2>Trading-time distributions</h2>
-<span class="sub">Flagged vs. other wallets</span>
-</div>
+<section class="panel"><div class="hd"><h2>When in the market do they trade?</h2><span class="sub">Share of each group's money, by time bucket</span></div>
 <div class="bd">
-<p>
-Compare the distribution of activity across trading
-hours and proximity to information times.
-Both groups are normalized to percentages.
-</p>
+<div class="sel"><label>Measure time as <select id="clock"></select></label></div>
+<div class="key"><span><i style="background:var(--green)"></i>Flagged wallets (each wallet counts equally; whisker is a 95% interval)</span><span><i style="background:var(--coral)"></i>Other experienced wallets (same weighting)</span><span><i style="background:#9aa7a0"></i>All traders (by dollars)</span></div>
+<div id="clockchart"></div>
+<div class="read" id="clockread"></div>
+</div></section>
 
-<div class="timing-controls">
-<select id="axis">
-<option value="hour">Hour of day (UTC)</option>
-<option value="lead">Time before information</option>
-<option value="dow">Day of week</option>
-</select>
-
-<select id="metric">
-<option value="fills">Fill frequency</option>
-<option value="dollars">Recorded fill-side USD</option>
-</select>
-
-<select id="source">
-<option value="all">All information-time sources</option>
-</select>
-</div>
-
-<div class="timing-legend">
-<span class="timing-swatch" style="background:#24b99e"></span>
-Flagged wallets
-<span class="timing-swatch" style="background:#7c9fc7"></span>
-Other wallets
-</div>
-
-<div style="overflow-x:auto">
-<div id="plot"></div>
-</div>
-
-<p class="small" id="summary"></p>
-</div>
-</div>
-
-<div class="grid">
-<div class="panel">
-<div class="hd">
-<h2>Why timing matters</h2>
-<span class="sub">Research interpretation</span>
-</div>
-<div class="bd prose">
-<p>
-If historically successful wallets trade more heavily
-at particular times, this could reveal differences
-in their trading behavior.
-</p>
-<p>
-Timing patterns may also reflect ordinary market
-activity, liquidity, and event schedules.
-</p>
-</div>
-</div>
-
-<div class="panel">
-<div class="hd">
-<h2>How we measure activity</h2>
-<span class="sub">Historical transactions</span>
-</div>
-<div class="bd prose">
-<p>
-We use timestamped archived trade records and
-Aiden's V4 wallet classifications.
-</p>
-<p>
-The two groups are compared within the same markets.
-The displayed frequencies are normalized within
-each group.
-</p>
-</div>
-</div>
-</div>
-
-<div class="callout warning">
-<p>
-<strong>Important limitation.</strong>
-Historically flagged wallets are not proven insiders.
-Several information times are approximate scheduled
-event times rather than independently verified
-first-public-announcement times.
-These descriptive charts do not establish causation
-or private information.
-</p>
-</div>
-
-
-<!-- WALLET-TIMING-V4 -->
-<h2 class="sectiontitle">
-Individual wallet timing · historical holdout
-</h2>
-<div class="panel">
-<div class="hd">
-<h2>Does a particular wallet trade at a specific hour?</h2>
-<span class="sub">Same-market comparison</span>
-</div>
+<section class="panel"><div class="hd"><h2>Did the price move their way afterwards?</h2><span class="sub">Gain per $1 traded, by how long after the trade</span></div>
 <div class="bd">
-<p>Select a historically flagged wallet. Teal bars show
-its trading activity. Blue bars show an activity-weighted
-comparison with other wallets in the same markets.</p>
+<div id="markchart"></div>
+<p class="small" id="marknote"></p>
+</div></section>
 
-<div style="display:flex;gap:12px;flex-wrap:wrap;margin:14px 0">
-<label>Wallet
-<select id="wt-wallet"></select></label>
-<label>Period
-<select id="wt-period">
-<option value="discovery">June–August 2026</option>
-<option value="validation" selected>September–November 2026</option>
-<option value="all">All post-cutoff activity</option>
-</select></label>
-<label>Time zone
-<select id="wt-zone">
-<option value="utc">UTC</option>
-<option value="ny">New York (DST-adjusted)</option>
-</select></label>
-<label>Measure
-<select id="wt-metric">
-<option value="fills">Fill frequency</option>
-<option value="usd">Fill-side dollars</option>
-</select></label>
-</div>
+<section class="panel"><div class="hd"><h2>Around Fed (FOMC) decisions</h2><span class="sub">Flagged wallets only</span></div>
+<div class="bd">
+<div id="fomcchart"></div>
+<p class="small">Share of flagged wallets' dollars in Fed-decision markets, by time relative to the announcement. Most of it is placed a day or more earlier.</p>
+</div></section>
 
-<div class="kpis">
-<div class="metric">
-<div class="val" id="wt-fills">—</div>
-<div class="lbl">Wallet fill records</div>
+<section class="panel"><div class="hd"><h2>Flagged wallets</h2><span class="sub" id="wcount"></span></div>
+<div class="bd">
+<div class="sel"><label>Search address <input id="wsearch" placeholder="0x…"></label><label><input type="checkbox" id="wonly" checked> only wallets with trades after the cut-off</label></div>
+<div class="tw" style="max-height:440px;overflow:auto"><table id="wtable"></table></div>
+<p class="small">Click a column to sort and a row to open that wallet's timing profile. Score is the wallet's evidence score (higher means a stronger past record than luck would explain). "Last 24 h" is the share of its dollars placed in the final day before resolution; 1-hour gain is the average price move in its favour one hour after its trades, per $1.</p>
 </div>
-<div class="metric">
-<div class="val" id="wt-markets">—</div>
-<div class="lbl">Comparable markets</div>
-</div>
-<div class="metric">
-<div class="val" id="wt-repeat">—</div>
-<div class="lbl">Later excess at discovery hour (pp)</div>
-</div>
-</div>
+<div class="detail" id="wdetail" hidden></div>
+</section>
 
-<p class="small">Teal = selected wallet · Blue = same-market comparison</p>
-<div style="overflow-x:auto">
-<div id="wt-bars" style="display:flex;align-items:flex-end;
-gap:5px;min-width:730px;height:245px"></div>
-</div>
-<p class="small" id="wt-description"></p>
-</div>
-</div>
+<section class="panel"><div class="hd"><h2>Replayed alerts</h2><span class="sub">Oct to Nov 2026, simple rule, frozen before the window</span></div>
+<div class="bd">
+<div class="sel"><label>Search address or market <input id="asearch" placeholder="0x… or text"></label>
+<label>Show <select id="aout"><option value="all">all alerts</option><option value="won">winners</option><option value="lost">losers</option></select></label></div>
+<div class="kpis" id="akpis" style="margin:6px 0 14px"></div>
+<div class="tw"><table id="atable"></table></div>
+<div class="pager"><button id="aprev">Previous</button><span id="apage"></span><button id="anext">Next</button></div>
+<p class="small">An alert is a trade by a wallet with a past evidence score of at least 3 and 10 or more past events. Return assumes copying 5 minutes later at the market price, staking $1, and holding to resolution. This is a replay of history, not live signals; see the <a href="alerts.html">Alerts page</a> for the full test and its limits.</p>
+</div></section>
 
-<div class="callout warning">
-<p id="wt-overall">Loading wallet-level evaluation.</p>
-<p class="small">The most distinctive UTC hour is identified
-using June–August trading and checked in September–November.
-A wallet must have at least 100 eligible fill records and
-three comparable markets in each period to enter the
-holdout comparison. This is exploratory, not a formal
-significance test. Flagged wallets are not proven insiders,
-and some information timestamps are approximate.</p>
-</div>
-
+<p class="small"><a href="timing_hourly.html">Time-of-day (UTC) view →</a></p>
 </main>
 <div id="ftr"></div>
-
 <script src="assets/app.js"></script>
-<script>layout('timing.html');</script>
 <script>
-(function timingPage(){
-
-
-let DATA;
-const el=id=>document.getElementById(id);
-const fmt=x=>Number(x).toLocaleString('en-US',{maximumFractionDigits:1});
-const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-
-function draw(){
- const axis=el('axis').value;
- const metric=el('metric').value;
- const source=el('source').value;
- const labels=axis==='hour'
-   ?Array.from({length:24},(_,i)=>String(i).padStart(2,'0'))
-   :axis==='dow'?days:DATA.lead_buckets;
- const vals={flagged:labels.map(()=>0),other:labels.map(()=>0)};
- for(const r of DATA.rows){
-   if(source!=='all'&&r.source!==source)continue;
-   const i=axis==='hour'?r.hour:axis==='dow'?r.dow:labels.indexOf(r.lead);
-   if(i>=0&&i<labels.length)vals[r.group][i]+=r[metric];
- }
- const sums={};
- const pct={};
- for(const g of ['flagged','other']){
-   sums[g]=vals[g].reduce((a,b)=>a+b,0);
-   pct[g]=vals[g].map(v=>sums[g]?v/sums[g]*100:0);
- }
- const max=Math.max(0.01,...pct.flagged,...pct.other)*1.1;
- el('plot').innerHTML=labels.map((label,i)=>`
- <div class="group">
- <div class="pair">
- <div class="bar flag" style="height:${100*pct.flagged[i]/max}%"
- title="Flagged: ${pct.flagged[i].toFixed(2)}%"></div>
- <div class="bar other" style="height:${100*pct.other[i]/max}%"
- title="Other: ${pct.other[i].toFixed(2)}%"></div>
- </div><span class="tick">${label}</span></div>`).join('');
- el('summary').textContent=
- `Flagged activity: ${fmt(sums.flagged)}; other activity: ${fmt(sums.other)}. Each group sums to 100%.`;
+layout('timing.html');
+const P=(v,d=1)=>(v>=0?'+':'')+fmt(v*100,d)+'%';
+const S=(v,d=1)=>fmt(v*100,d)+'%';
+const short=a=>a.slice(0,6)+'…'+a.slice(-4);
+const when=t=>new Date(t*1000).toISOString().slice(0,16).replace('T',' ');
+let D=null;
+const CLOCKS=[
+ ["Time before the market resolved","Time before the market resolved"],
+ ["Share of the market's life elapsed","How far through the market's life"],
+ ["Time relative to the market's biggest price shift","Relative to the market's biggest price move (hourly)"],
+ ["Minutes around the sharpest 10-minute jump","Relative to the sharpest 10-minute jump"]];
+const FL='Flagged wallets (less conservative rule)',OT='Other experienced wallets',AL='All traders';
+function bars(el,items,max){ // items: {l,f,flo,fhi,o,a}
+ el.innerHTML=items.map(i=>{const w=v=>Math.min(100,v/max*100);
+  const row=(cls,v,extra)=>v==null?'':'<div class="tr"><div class="fill '+cls+'" style="width:'+w(v)+'%"></div>'+(extra||'')+'<span class="v">'+S(v)+'</span></div>';
+  const wh=i.flo!=null?'<div class="whisk" style="left:'+w(i.flo)+'%;width:'+Math.max(0.5,w(i.fhi)-w(i.flo))+'%"></div>':'';
+  return '<div class="hb"><div class="lab">'+esc(i.l)+'</div><div class="tracks">'+row('f',i.f,wh)+row('o',i.o)+row('a',i.a)+'</div></div>'}).join('')}
+function drawClock(){
+ const c=$('clock').value;const rows=D.clock_shares.filter(r=>r.clock===c);
+ const order=[...new Set(rows.map(r=>r.bucket))];
+ const get=(g,b)=>rows.find(r=>r.group===g&&r.bucket===b);
+ const items=order.map(b=>{const f=get(FL,b),o=get(OT,b),a=get(AL,b);return{l:b,f:f&&f.wallet_equal_share,flo:f&&f.wallet_equal_lo,fhi:f&&f.wallet_equal_hi,o:o&&o.wallet_equal_share,a:a&&a.pooled_dollar_share}});
+ const max=Math.max(...items.flatMap(i=>[i.fhi??i.f,i.o,i.a].filter(x=>x!=null)))*1.05;
+ bars($('clockchart'),items,max);
+ const s=D.summary;
+ const txt={
+ "Time before the market resolved":'In the final 24 hours before resolution flagged wallets put '+S(s.last_24h_before_resolution.flagged_wallet_equal)+' of their money, against '+S(s.last_24h_before_resolution.other_wallet_equal)+' for other experienced wallets (by dollars: '+S(s.last_24h_before_resolution.flagged_pooled)+' vs '+S(s.last_24h_before_resolution.other_pooled)+'). Roughly half of their money goes in more than 30 days ahead, so they are mostly early positioners, not last-minute traders.',
+ "Share of the market's life elapsed":'Flagged wallets put '+S(s.first_10pct_of_life.flagged_wallet_equal)+' of their money into the first tenth of a market\'s life, against '+S(s.first_10pct_of_life.other_wallet_equal)+' for others, and slightly less than others into the last tenth ('+S(s.last_10pct_of_life.flagged_wallet_equal)+' vs '+S(s.last_10pct_of_life.other_wallet_equal)+'). That fits a pattern of buying early, when prices are least settled.',
+ "Time relative to the market's biggest price shift":'In the hour before or during the market\'s biggest hourly price move, flagged wallets placed '+S(s.hour_before_or_of_shift.flagged_wallet_equal)+' of their money, against '+S(s.hour_before_or_of_shift.other_wallet_equal)+' for others. Across '+num(D.markets_with_shift)+' markets with a clear shift, they are over-represented right at the moment the price moved.',
+ "Minutes around the sharpest 10-minute jump":'In the 10 minutes before the sharpest jump, flagged wallets placed '+S(s.ten_minutes_before_jump.flagged_wallet_equal)+' of their money against '+S(s.ten_minutes_before_jump.other_wallet_equal)+' for others (about '+fmt(s.ten_minutes_before_jump.flagged_wallet_equal/s.ten_minutes_before_jump.other_wallet_equal,1)+' times as much); during the jump itself '+S(s.ten_minutes_of_jump.flagged_wallet_equal)+' vs '+S(s.ten_minutes_of_jump.other_wallet_equal)+'. Trading during a jump can also mean their own orders caused it.'};
+ $('clockread').textContent=txt[c]||'';
 }
-async function start(){
- try{
-  const response=await fetch('data/trader_timing.json',{cache:'no-store'});
-  if(!response.ok)throw Error('Data file missing');
-  DATA=await response.json();
-  el('wallets').textContent=fmt(DATA.flagged_wallets);
-  el('markets').textContent=fmt(DATA.matched_markets);
-  el('cutoff').textContent=DATA.split_date;
-  const srcs=[...new Set(DATA.rows.map(r=>r.source))].sort();
-  el('source').innerHTML='<option value="all">All information-time sources</option>'+
-    srcs.map(s=>`<option value="${s}">${s.replace(/_/g,' ')}</option>`).join('');
-  for(const id of ['axis','metric','source'])
-    el(id).addEventListener('change',draw);
-  draw();
- }catch(e){
-  el('summary').textContent='Could not load analysis: '+e.message;
- }
+function drawMark(){
+ const hs=['5 min','1 hour','6 hours','24 hours','at resolution'];
+ const get=(g,h)=>D.markouts.find(r=>r.group===g&&r.horizon===h);
+ const mx=Math.max(...hs.map(h=>Math.max(get(FL,h).hi??get(FL,h).gain_per_dollar,get(OT,h).gain_per_dollar)))*1.05;
+ $('markchart').innerHTML=hs.map(h=>{const f=get(FL,h),o=get(OT,h);const w=v=>Math.max(0,Math.min(100,v/mx*100));
+  const wh=f.lo!=null?'<div class="whisk" style="left:'+w(f.lo)+'%;width:'+Math.max(.5,w(f.hi)-w(f.lo))+'%"></div>':'';
+  return '<div class="hb"><div class="lab">'+(h==='at resolution'?'At resolution':'After '+h)+'</div><div class="tracks"><div class="tr"><div class="fill f" style="width:'+w(f.gain_per_dollar)+'%"></div>'+wh+'<span class="v">'+P(f.gain_per_dollar)+'</span></div><div class="tr"><div class="fill o" style="width:'+w(o.gain_per_dollar)+'%"></div><span class="v">'+P(o.gain_per_dollar)+'</span></div></div></div>'}).join('')+'<div class="key"><span><i style="background:var(--green)"></i>Flagged wallets (whisker = 95% interval)</span><span><i style="background:var(--coral)"></i>Other experienced wallets</span></div>';
+ const f1=get(FL,'1 hour'),o1=get(OT,'1 hour');
+ $('marknote').textContent='One hour after a flagged wallet trades, the price has moved '+P(f1.gain_per_dollar)+' per $1 in its favour, versus '+P(o1.gain_per_dollar)+' for other experienced wallets. The gap grows over the next day. Price moves right after a trade can be the trade itself pushing the price, so this does not by itself show advance knowledge. At resolution the flagged group\'s average is not clearly different from zero.';
 }
-start();
-
-
-})();
+function drawFomc(){
+ const rows=D.fomc.filter(r=>r.group===FL);const mx=Math.max(...rows.map(r=>r.dollar_share))*1.05;
+ $('fomcchart').innerHTML=rows.map(r=>'<div class="hb"><div class="lab">'+esc(r.bucket)+'</div><div class="tracks"><div class="tr"><div class="fill f" style="width:'+(r.dollar_share/mx*100)+'%"></div><span class="v">'+S(r.dollar_share)+'</span></div></div></div>').join('');
+}
+/* wallets */
+let sortK='z',sortD=-1,sel=null;
+const cols=[['address','Wallet',w=>'<span class="mono">'+short(w.address)+'</span>'],['z','Score',w=>fmt(w.z,1)],['events','Past events',w=>num(w.events)],
+ ['dollars','$ traded after cut-off',w=>w.timing?'$'+num(w.timing.dollars):'–'],['last24h','Last 24 h',w=>w.timing?S(w.timing.last24h,0):'–'],
+ ['m1h','1-hour gain',w=>w.timing&&w.timing.m1h!=null?P(w.timing.m1h):'–'],['at_resolution','At resolution',w=>w.timing&&w.timing.at_resolution!=null?P(w.timing.at_resolution,0):'–']];
+function val(w,k){if(k==='address')return w.address;if(k==='z'||k==='events')return w[k];return w.timing?(w.timing[k]??-1e9):-1e9}
+function drawWallets(){
+ const q=$('wsearch').value.trim().toLowerCase(),only=$('wonly').checked;
+ let ws=D.wallets.filter(w=>(!only||w.timing)&&(!q||w.address.toLowerCase().includes(q)));
+ ws.sort((a,b)=>{const x=val(a,sortK),y=val(b,sortK);return (x>y?1:x<y?-1:0)*sortD});
+ $('wcount').textContent=ws.length+' of '+D.wallets.length+' wallets shown';
+ $('wtable').innerHTML='<thead><tr>'+cols.map(c=>'<th class="s" data-k="'+c[0]+'">'+c[1]+(sortK===c[0]?(sortD<0?' ▼':' ▲'):'')+'</th>').join('')+'</tr></thead><tbody>'+
+  ws.slice(0,200).map(w=>'<tr class="row'+(sel===w.address?' on':'')+'" data-a="'+w.address+'">'+cols.map(c=>'<td>'+c[2](w)+'</td>').join('')+'</tr>').join('')+'</tbody>';
+ document.querySelectorAll('#wtable th.s').forEach(th=>th.onclick=()=>{const k=th.dataset.k;if(sortK===k)sortD*=-1;else{sortK=k;sortD=-1}drawWallets()});
+ document.querySelectorAll('#wtable tr.row').forEach(tr=>tr.onclick=()=>{sel=tr.dataset.a;drawWallets();showWallet(sel)});
+}
+function avgProfile(key){const ts=D.wallets.filter(w=>w.timing).map(w=>w.timing[key]);return ts[0].map((_,i)=>ts.reduce((s,x)=>s+x[i],0)/ts.length)}
+function showWallet(a){
+ const w=D.wallets.find(x=>x.address===a),el=$('wdetail');el.hidden=false;const t=w.timing;
+ let h='<h3 style="margin:0 0 4px;font:500 22px Newsreader,Georgia,serif">Wallet <span class="mono">'+esc(w.address)+'</span></h3><p class="small" style="margin:0 0 14px"><a href="https://polymarket.com/profile/'+esc(w.address)+'" target="_blank" rel="noopener">View on Polymarket ↗</a> · score '+fmt(w.z,1)+' · '+num(w.events)+' past events · past profit $'+num(w.profit)+' on $'+num(w.volume)+' traded</p>';
+ if(!t){el.innerHTML=h+'<p>No trades by this wallet after the 1 June 2026 cut-off passed our filters, so there is no timing profile.</p>';return}
+ h+='<div><span class="pill2">'+num(t.trades)+' trades</span><span class="pill2">$'+num(t.dollars)+' traded</span><span class="pill2">'+num(t.markets)+' markets</span><span class="pill2">'+S(t.last24h,0)+' in final 24 h</span><span class="pill2">1-hour gain '+(t.m1h!=null?P(t.m1h):'–')+'</span><span class="pill2">24-hour gain '+(t.m24h!=null?P(t.m24h):'–')+'</span></div>';
+ h+='<div class="cols2"><div><h4>Time before resolution</h4><div id="d1"></div></div><div><h4>How far through the market</h4><div id="d2"></div></div></div><p class="small">Green: this wallet. Grey: average flagged wallet. Share of the wallet\'s dollars in each bucket.</p>';
+ h+='<h4>Its biggest trades</h4><div class="tw"><table><thead><tr><th>Date (UTC)</th><th>Market</th><th>$</th><th>Price paid</th><th>Hours before resolution</th><th>Result</th></tr></thead><tbody>'+t.top_trades.map(x=>'<tr><td>'+when(x.t)+'</td><td style="white-space:normal;text-align:left;min-width:220px">'+esc(x.market)+'</td><td>'+num(x.usd)+'</td><td>'+fmt(x.price,2)+'</td><td>'+fmt(x.hours_before,1)+'</td><td class="'+(x.edge>0?'win':'loss')+'">'+(x.edge>0?'Won':'Lost')+'</td></tr>').join('')+'</tbody></table></div>';
+ el.innerHTML=h;
+ const L1=["under 1 h","1-6 h","6-24 h","1-3 days","3-7 days","7-30 days","30-90 days","90+ days"],L2=[...Array(10)].map((_,i)=>(i*10)+'-'+(i*10+10)+'%');
+ const draw=(id,labels,mine,avg)=>{const mx=Math.max(...mine,...avg)*1.1||1;
+  $(id).innerHTML=labels.map((l,i)=>'<div class="hb" style="grid-template-columns:78px 1fr"><div class="lab">'+l+'</div><div class="tracks"><div class="tr"><div class="fill f" style="width:'+(mine[i]/mx*100)+'%"></div><span class="v">'+S(mine[i],0)+'</span></div><div class="tr" style="height:9px"><div class="fill a" style="width:'+(avg[i]/mx*100)+'%"></div></div></div></div>').join('')};
+ draw('d1',L1,t.by_time_to_resolution,avgProfile('by_time_to_resolution'));draw('d2',L2,t.by_life,avgProfile('by_life'));
+ el.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+/* alerts */
+let apg=0;const PS=25;
+function drawAlerts(){
+ const q=$('asearch').value.trim().toLowerCase(),o=$('aout').value;
+ const as=D.alerts.filter(x=>(o==='all'||(o==='won')===!!x.won)&&(!q||x.wallet.toLowerCase().includes(q)||x.market.toLowerCase().includes(q)));
+ const n=as.length,pages=Math.max(1,Math.ceil(n/PS));apg=Math.min(apg,pages-1);
+ const win=n?as.filter(x=>x.won).length/n:0,ret=n?as.reduce((s,x)=>s+x.ret,0)/n:0;
+ $('akpis').innerHTML='<div class="metric"><div class="val">'+num(n)+'</div><div class="lbl">alerts match</div></div><div class="metric"><div class="val">'+S(win,0)+'</div><div class="lbl">won</div></div><div class="metric"><div class="val">'+P(ret)+'</div><div class="lbl">average return per $1 staked (copying 5 min later)</div></div>';
+ $('atable').innerHTML='<thead><tr><th>Alert time (UTC)</th><th>Wallet</th><th>Market</th><th>Price</th><th>Score</th><th>Past events</th><th>Result</th><th>Return</th></tr></thead><tbody>'+
+  as.slice(apg*PS,apg*PS+PS).map(x=>'<tr><td>'+when(x.t)+'</td><td class="mono"><a href="https://polymarket.com/profile/'+esc(x.wallet)+'" target="_blank" rel="noopener">'+short(x.wallet)+'</a></td><td style="white-space:normal;text-align:left;min-width:220px">'+esc(x.market)+'</td><td>'+fmt(x.price,2)+'</td><td>'+fmt(x.z,1)+'</td><td>'+num(x.past_events)+'</td><td class="'+(x.won?'win':'loss')+'">'+(x.won?'Won':'Lost')+'</td><td class="'+(x.ret>=0?'win':'loss')+'">'+P(x.ret,0)+'</td></tr>').join('')+'</tbody>';
+ $('apage').textContent='Page '+(apg+1)+' of '+pages;$('aprev').disabled=apg===0;$('anext').disabled=apg>=pages-1;
+}
+getJSON('data/timing_explorer.json').then(d=>{D=d;const s=d.summary;
+ $('kpis').innerHTML=[
+  ['Last 24 hours',S(s.last_24h_before_resolution.flagged_wallet_equal),'of a flagged wallet\'s money is placed in the final day, vs '+S(s.last_24h_before_resolution.other_wallet_equal)+' for others'],
+  ['At the price jump',S(s.hour_before_or_of_shift.flagged_wallet_equal),'placed in the hour before or of the biggest price move, vs '+S(s.hour_before_or_of_shift.other_wallet_equal)],
+  ['10 min before a jump',S(s.ten_minutes_before_jump.flagged_wallet_equal),'vs '+S(s.ten_minutes_before_jump.other_wallet_equal)+' for others (sharpest 10-minute move)'],
+  ['1 hour later',P(d.markouts.find(r=>r.group===FL&&r.horizon==='1 hour').gain_per_dollar),'price move in their favour per $1, vs '+P(d.markouts.find(r=>r.group===OT&&r.horizon==='1 hour').gain_per_dollar)+' for others']
+ ].map(([t,v,l])=>'<div class="metric"><div class="tag">'+esc(t)+'</div><div class="val">'+v+'</div><div class="lbl">'+esc(l)+'</div></div>').join('');
+ $('clock').innerHTML=CLOCKS.map(c=>'<option value="'+esc(c[0])+'">'+esc(c[1])+'</option>').join('');
+ $('clock').onchange=drawClock;drawClock();drawMark();drawFomc();
+ $('wsearch').oninput=drawWallets;$('wonly').onchange=drawWallets;drawWallets();
+ $('asearch').oninput=()=>{apg=0;drawAlerts()};$('aout').onchange=()=>{apg=0;drawAlerts()};
+ $('aprev').onclick=()=>{apg--;drawAlerts()};$('anext').onclick=()=>{apg++;drawAlerts()};drawAlerts();
+}).catch(e=>{$('kpis').textContent='Cannot load timing_explorer.json: '+e.message});
 </script>
-<script>
-(()=>{
-const E=id=>document.getElementById(id);
-let D;
-const fmt=x=>Number(x).toLocaleString('en-US');
-
-function draw(){
- const w=D.wallets.find(x=>x.wallet===E('wt-wallet').value);
- if(!w)return;
- const p=w.periods[E('wt-period').value];
- const t=p.data[E('wt-zone').value][E('wt-metric').value];
- const mx=Math.max(.1,...t.wallet,...t.comparison)*1.1;
-
- E('wt-bars').innerHTML=t.wallet.map((v,h)=>`
- <div style="flex:1;height:100%;display:flex;
- align-items:center;flex-direction:column;justify-content:flex-end">
- <div style="width:100%;height:210px;display:flex;gap:2px;
- align-items:flex-end;justify-content:center">
- <div title="Wallet ${v.toFixed(2)}%"
- style="width:40%;height:${100*v/mx}%;background:#24b99e"></div>
- <div title="Peers ${t.comparison[h].toFixed(2)}%"
- style="width:40%;height:${100*t.comparison[h]/mx}%;
- background:#7c9fc7"></div>
- </div>
- <span style="font-size:10px">${String(h).padStart(2,'0')}</span>
- </div>`).join('');
-
- E('wt-fills').textContent=fmt(p.fills);
- E('wt-markets').textContent=fmt(p.markets);
- const lift=w.validation_excess_pp;
-
- E('wt-repeat').textContent=lift===null
- ?'Not enough data'
- :(lift>=0?'+':'')+lift.toFixed(2);
-
- const peak=t.wallet.indexOf(Math.max(...t.wallet));
-
- E('wt-description').textContent=p.fills
- ?`Peak hour: ${String(peak).padStart(2,'0')}:00–${String(peak).padStart(2,'0')}:59
- ${E('wt-zone').value==='utc'?'UTC':'New York local time'}.
- Wallet: ${t.wallet[peak].toFixed(2)}%;
- peers: ${t.comparison[peak].toFixed(2)}%.
- The holdout value uses the discovery-selected UTC hour,
- which may differ from this peak.`
- :'No qualifying observations for this wallet and period.';
-}
-
-async function init(){
- try{
-  const r=await fetch('data/wallet_timing_v4.json',
-                      {cache:'no-store'});
-  if(!r.ok)throw Error('File missing');
-  D=await r.json();
-
-  E('wt-wallet').innerHTML=D.wallets
-   .filter(w=>w.periods.all.fills>0)
-   .map(w=>`<option value="${w.wallet}">
-   ${w.wallet.slice(0,10)}… ·
-   ${fmt(w.periods.all.fills)} fills</option>`)
-   .join('');
-
-  E('wt-overall').textContent=
-  `Latest V4 screen: ${fmt(D.v4_flagged)} flagged
-  of ${fmt(D.v4_eligible)} eligible wallets.
-  ${fmt(D.evaluated_wallets)} wallets satisfy the
-  two-period sample thresholds; ${fmt(D.positive_retest)}
-  retain positive excess activity at their discovered
-  UTC hour in the later period. This is descriptive
-  evidence, not proof of informed trading.`;
-
-  for(const id of [
-   'wt-wallet','wt-period','wt-zone','wt-metric'
-  ]){
-   E(id).addEventListener('change',draw);
-  }
-  draw();
- }catch(err){
-  E('wt-overall').textContent=
-   'Wallet timing failed to load: '+err.message;
-  console.error(err);
- }
-}
-init();
-})();
-</script>
-</body>
-</html>
+</body></html>

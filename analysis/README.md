@@ -208,3 +208,6 @@ python record_books.py --min-volume 50000 --max-markets 300
 ## Toward Milestone II
 
 `wallet_panel.csv` is already shaped for the next step. Strategy classification can cluster the timing, splitting, and markout features of flagged wallets. The game-theory mapping can test whether informed wallets' trading is back-loaded relative to when their information arrives, which is the Chen et al. prediction.
+
+## Website timing page data
+`python build_timing_site.py --data data_events_full/live --results results_v4 --alerts results_v3/alerts_fresh/primary_alerts_5min.parquet --out ../web/data/timing_explorer.json` rebuilds the Trader Timing page data (needs the large local data files).
